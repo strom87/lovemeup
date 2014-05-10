@@ -16,8 +16,8 @@ class UserRelationsTable extends Migration {
 		{
 			$table->increments('id');
 			$table->integer('user_id')->unsigned();
-			$table->integer('search_id')->unsigned();
-			$table->integer('partner_gender_id')->unsigned();
+			$table->integer('gender_id')->unsigned();
+			$table->integer('relationship_search_id')->unsigned();
 			$table->integer('relationship_status_id')->unsigned();
 			$table->integer('minage');
 			$table->integer('maxage');

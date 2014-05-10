@@ -16,7 +16,7 @@ class UserDetailsTable extends Migration {
 		{
 			$table->increments('id');
 			$table->integer('user_id')->unsigned();
-			$table->integer('child_id')->unsigned();
+			$table->integer('children_id')->unsigned();
 			$table->integer('pet_id')->unsigned();
 			$table->integer('alcohol_id')->unsigned();
 			$table->integer('tobacco_id')->unsigned();
