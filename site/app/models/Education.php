@@ -6,4 +6,9 @@ class Education extends Eloquent {
 
 	protected $fillable = array('name');
 
+	public function userEmployments()
+	{
+		return $this->hasMany('UserEmployment', 'education_id', 'id');
+	}
+
 }

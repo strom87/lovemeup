@@ -13,7 +13,7 @@ class Gender extends Eloquent {
 
 	public function userRelations()
 	{
-		return $this->hasMany('user_relations', 'gender_id', 'id');
+		return $this->hasMany('UserRelation', 'gender_id', 'id');
 	}
 
 }

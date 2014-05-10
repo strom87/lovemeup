@@ -82,4 +82,44 @@ class User extends Eloquent implements UserInterface, RemindableInterface {
 		return $this->email;
 	}
 
+	public function setPasswordAttribute($value)
+	{
+		$this->attributes['password'] = Hash::make($value);
+	}
+
+	public function userAppearance()
+	{
+		return $this->hasOne('UserAppearance', 'id', 'user_appearance_id');
+	}
+
+	public function userDetail()
+	{
+		return $this->hasOne('UserDetail', 'id', 'user_detail_id');
+	}
+
+	public function userEmployment()
+	{
+		return $this->hasOne('UserEmployment', 'id', 'user_employment_id');
+	}
+
+	public function userRelation()
+	{
+		return $this->hasOne('UserRelation', 'id', 'user_relation_id');
+	}
+
+	public function gender()
+	{
+		return $this->belongsTo('Gender', 'gender_id', 'id');
+	}
+
+	public function fromUser()
+	{
+		return $this->hasManyThrough('Message', 'UserMessage', 'message_id', 'from_user_id');
+	}
+
+	public function toUser()
+	{
+		return $this->hasManyThrough('Message', 'UserMessage', 'message_id', 'to_user_id');
+	}
+
 }

@@ -8,7 +8,7 @@ class RelationshipStatus extends Eloquent {
 
 	public function userRelations()
 	{
-		return $this->hasMany('user_relations', 'relationship_status_id', 'id');
+		return $this->hasMany('UserRelation', 'relationship_status_id', 'id');
 	}
 
 }

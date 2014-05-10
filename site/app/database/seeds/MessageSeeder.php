@@ -11,7 +11,7 @@ class MessageSeeder extends Seeder {
 	{
 		Message::truncate();
 
-		Message::create(['message'=>'hejsan']);
+		Message::create(['text'=>'hejsan']);
 	}
 
 }

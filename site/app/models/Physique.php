@@ -8,7 +8,7 @@ class Physique extends Eloquent {
 
 	public function userAppearances()
 	{
-		return $this->hasMany('user_appearances', 'physique_id', 'id');
+		return $this->hasMany('UserAppearance', 'physique_id', 'id');
 	}
 
 }

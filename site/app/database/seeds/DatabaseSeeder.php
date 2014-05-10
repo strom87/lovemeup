@@ -28,11 +28,11 @@ class DatabaseSeeder extends Seeder {
 		$this->call('RelationshipStatusSeeder');
 		$this->call('WorkSeeder');
 		$this->call('WorkStatusSeeder');
-		//$this->call('');
-		//$this->call('');
-		//$this->call('');
-		//$this->call('');
-		//$this->call('');
+		$this->call('UserSeeder');
+		$this->call('UserRelationSeeder');
+		$this->call('UserDetailSeeder');
+		$this->call('UserEmploymentSeeder');
+		$this->call('UserAppearanceSeeder');
 		//$this->call('');
 	}
 

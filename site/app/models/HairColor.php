@@ -8,7 +8,7 @@ class HairColor extends Eloquent {
 
 	public function userAppearances()
 	{
-		return $this->hasMany('user_appearances', 'hair_color_id', 'id');
+		return $this->hasMany('UserAppearance', 'hair_color_id', 'id');
 	}
 
 }

@@ -8,7 +8,7 @@ class Tobacco extends Eloquent {
 
 	public function userDetails()
 	{
-		return $this->hasMany('user_details', 'tobacco_id', 'id');
+		return $this->hasMany('UserDetail', 'tobacco_id', 'id');
 	}
 
 }

@@ -8,7 +8,7 @@ class Children extends Eloquent {
 
 	public function userDetails()
 	{
-		return $this->hasMany('user_details', 'children_id', 'id');
+		return $this->hasMany('UserDetail', 'children_id', 'id');
 	}
 	
 }

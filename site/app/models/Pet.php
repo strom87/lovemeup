@@ -8,7 +8,7 @@ class Pet extends Eloquent {
 
 	public function userDetails()
 	{
-		return $this->hasMany('user_details', 'pet_id', 'id');
+		return $this->hasMany('UserDetail', 'pet_id', 'id');
 	}
 	
 }

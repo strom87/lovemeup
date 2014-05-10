@@ -6,4 +6,9 @@ class WorkStatus extends Eloquent {
 
 	protected $fillable = array('name');
 
+	public function userEmployments()
+	{
+		return $this->hasMany('UserEmployment', 'work_status_id', 'id');
+	}
+	
 }

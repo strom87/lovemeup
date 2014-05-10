@@ -6,4 +6,24 @@ class UserEmployment extends Eloquent {
 
 	// protected $fillable = array('name');
 
+	public function user()
+	{
+		return $this->belongsTo('User', 'user_id', 'id');
+	}
+
+	public function education()
+	{
+		return $this->belongsTo('Education', 'education_id', 'id');
+	}
+
+	public function work()
+	{
+		return $this->belongsTo('Work', 'work_id', 'id');
+	}
+
+	public function workStatus()
+	{
+		return $this->belongsTo('WorkStatus', 'work_status_id', 'id');
+	}
+
 }

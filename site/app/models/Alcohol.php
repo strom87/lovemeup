@@ -8,7 +8,7 @@ class Alcohol extends Eloquent {
 
 	public function userDetails()
 	{
-		return $this->hasMany('user_details', 'alcohol_id', 'id');
+		return $this->hasMany('UserDetail', 'alcohol_id', 'id');
 	}
 	
 }

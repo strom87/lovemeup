@@ -8,7 +8,7 @@ class RelationshipSearch extends Eloquent {
 
 	public function userRelations()
 	{
-		return $this->hasMany('user_relations', 'relationship_search_id', 'id');
+		return $this->hasMany('UserRelation', 'relationship_search_id', 'id');
 	}
 	
 }

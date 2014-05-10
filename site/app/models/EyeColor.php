@@ -8,7 +8,7 @@ class EyeColor extends Eloquent {
 
 	public function userAppearances()
 	{
-		return $this->hasMany('user_appearances', 'eye_color_id', 'id');
+		return $this->hasMany('UserAppearance', 'eye_color_id', 'id');
 	}
 
 }
