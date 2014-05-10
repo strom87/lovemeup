@@ -23,7 +23,9 @@ class UserSeeder extends Seeder {
 		$user->name = 'Kalle';
 		$user->email = 'kalle@kalle.se';
 		$user->password = 'asdasd';
+		$user->length = 190;
 		$user->birthYear = 1980;
+		$user->acceptedRules = true;
 		$user->isActivated = true;
 		$user->isPaused = false;
 		$user->token = str_random(50);

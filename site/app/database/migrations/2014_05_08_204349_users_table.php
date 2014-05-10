@@ -28,6 +28,7 @@ class UsersTable extends Migration {
 			$table->string('password', 60);
 			$table->integer('birthYear');
 			$table->integer('length');
+			$table->boolean('acceptedRules');
 			$table->boolean('isActivated');
 			$table->boolean('isPaused');
 			$table->string('token', 50);
