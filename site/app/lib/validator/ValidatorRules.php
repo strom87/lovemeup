@@ -14,9 +14,9 @@ class ValidatorRules {
 
 	private static $accepted_rules = 'required|accepted';
 
-	private static $min_age = 'required|integers_between:18,100';
+	private static $min_age = 'required|integer_between:18,100';
 
-	private static $max_age = 'required|integers_between:18,100';
+	private static $max_age = 'required|integer_between:18,100';
 
 	private static $gender_id = 'required|exists:genders,id';
 

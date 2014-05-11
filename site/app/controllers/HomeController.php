@@ -9,6 +9,11 @@ class HomeController extends BaseController {
 		return User::find(2)->userRelation;
 	}
 
+	public function getExists()
+	{
+		
+	}
+
 	public function getMakeUser()
 	{
 		$data = [
