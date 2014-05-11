@@ -4,7 +4,7 @@ class UserEmployment extends Eloquent {
 
 	protected $table = 'user_employments';
 
-	// protected $fillable = array('name');
+	protected $fillable = array('education_id', 'work_id', 'work_status_id');
 
 	public function user()
 	{

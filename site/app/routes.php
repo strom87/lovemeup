@@ -11,12 +11,10 @@
 |
 */
 
+Route::controller('test', 'HomeController');
+
 Route::get('/', function()
 {
 	return View::make('hello');
 });
 
-Route::get('test', function()
-{
-	return User::first()->userRelation->relationshipStatus->name;
-});

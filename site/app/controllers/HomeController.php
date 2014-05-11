@@ -1,23 +1,37 @@
 <?php
 
+use database\UserDb;
+
 class HomeController extends BaseController {
 
-	/*
-	|--------------------------------------------------------------------------
-	| Default Home Controller
-	|--------------------------------------------------------------------------
-	|
-	| You may wish to use controllers instead of, or in addition to, Closure
-	| based routes. That's great! Here is an example controller method to
-	| get you started. To route to this controller, just add the route:
-	|
-	|	Route::get('/', 'HomeController@showWelcome');
-	|
-	*/
-
-	public function showWelcome()
+	public function getIndex()
 	{
-		return View::make('hello');
+		return User::find(2)->userRelation;
 	}
 
+	public function getMakeUser()
+	{
+		$data = [
+			'gender'=>1,
+			'name'=>'Janne',
+			'email'=>'janne@janne.se',
+			'password'=>'asdasd',
+			'birthYear'=>1970,
+			'length'=>200,
+			'acceptedRules'=>true,
+			'partnerGender'=>2,
+			'relationshipStatus'=>1,
+			'relationshipSearch'=>2,
+			'minage'=>18,
+			'maxage'=>100
+		];
+
+		$u = new UserDb();
+
+		if($u->make($data)) {
+			return 'true';
+		}
+
+		return var_dump($u->messages());
+	}
 }

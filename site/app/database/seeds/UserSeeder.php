@@ -16,10 +16,6 @@ class UserSeeder extends Seeder {
 		$user->state_id = 1;
 		$user->city_id = 1;
 		$user->gender_id = 1;
-		$user->user_appearance_id = 1;
-		$user->user_relation_id = 1;
-		$user->user_detail_id = 1;
-		$user->user_employment_id = 1;
 		$user->name = 'Kalle';
 		$user->email = 'kalle@kalle.se';
 		$user->password = 'asdasd';

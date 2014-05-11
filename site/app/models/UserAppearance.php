@@ -4,11 +4,11 @@ class UserAppearance extends Eloquent {
 
 	protected $table = 'user_appearances';
 
-	// protected $fillable = array('name');
+	protected $fillable = array('eye_color_id', 'hair_color_id', 'physique_id');
 
 	public function user()
 	{
-		return $this->belongsTo('User', 'user_id', 'id');
+		return $this->hasOne('User', 'id', 'user_id');
 	}
 
 	public function eyeColor()

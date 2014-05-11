@@ -70,7 +70,7 @@ return array(
 	),
 	"unique"               => "The :attribute has already been taken.",
 	"url"                  => "The :attribute format is invalid.",
-
+	"integers_between"	   => "The :attribute value must be between :min and :max",
 	/*
 	|--------------------------------------------------------------------------
 	| Custom Validation Language Lines

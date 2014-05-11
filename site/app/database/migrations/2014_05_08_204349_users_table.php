@@ -19,10 +19,6 @@ class UsersTable extends Migration {
 			$table->integer('state_id')->unsigned();
 			$table->integer('city_id')->unsigned();
 			$table->integer('gender_id')->unsigned();
-			$table->integer('user_appearance_id')->unsigned();
-			$table->integer('user_relation_id')->unsigned();
-			$table->integer('user_detail_id')->unsigned();
-			$table->integer('user_employment_id')->unsigned();
 			$table->string('name', 30);
 			$table->string('email', 100);
 			$table->string('password', 60);

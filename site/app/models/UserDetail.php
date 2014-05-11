@@ -4,7 +4,7 @@ class UserDetail extends Eloquent {
 
 	protected $table = 'user_details';
 
-	protected $fillable = array();
+	protected $fillable = array('children_id', 'children_id', 'alcohol_id', 'alcohol_id');
 
 	public function user()
 	{
