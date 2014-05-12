@@ -27,7 +27,7 @@ class DropDown {
 
 	public static function lengths()
 	{
-		if (!Cache::has('lenghts_list'))
+		if (!Cache::has('lengths_list'))
 		{
 			$lengths = [];
 
@@ -36,10 +36,10 @@ class DropDown {
 				$lengths[$length] = $length;
 			}
 
-			Cache::put('lenghts_list', $lengths);
+			Cache::put('lengths_list', $lengths);
 		}
 
-		return Cache::get('lenghts_list');
+		return Cache::get('lengths_list');
 	}
 
 	public static function genders()
