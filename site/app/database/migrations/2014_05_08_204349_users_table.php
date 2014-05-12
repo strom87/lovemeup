@@ -28,6 +28,7 @@ class UsersTable extends Migration {
 			$table->boolean('isActivated');
 			$table->boolean('isPaused');
 			$table->string('token', 50);
+			$table->text('description');
 			$table->timestamp('lastLogin');
 			$table->timestamp('lastActivity');
 			$table->timestamps();

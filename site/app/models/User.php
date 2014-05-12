@@ -12,7 +12,7 @@ class User extends Eloquent implements UserInterface, RemindableInterface {
 	 */
 	protected $table = 'users';
 
-	protected $fillable = array('gender_id', 'name', 'email', 'password', 'birthYear', 'length', 'token', 'acceptedRules', 'isActivated', 'isPaused');
+	protected $fillable = array('gender_id', 'name', 'email', 'password', 'birthYear', 'length', 'token', 'description', 'acceptedRules', 'isActivated', 'isPaused');
 
 	/**
 	 * The attributes excluded from the model's JSON form.
@@ -89,22 +89,22 @@ class User extends Eloquent implements UserInterface, RemindableInterface {
 
 	public function userAppearance()
 	{
-		return $this->hasOne('UserAppearance', 'id', 'user_id');
+		return $this->hasOne('UserAppearance', 'user_id', 'id');
 	}
 
 	public function userDetail()
 	{
-		return $this->hasOne('UserDetail', 'id', 'user_id');
+		return $this->hasOne('UserDetail', 'user_id', 'id');
 	}
 
 	public function userEmployment()
 	{
-		return $this->hasOne('UserEmployment', 'id', 'user_id');
+		return $this->hasOne('UserEmployment', 'user_id', 'id');
 	}
 
 	public function userRelation()
 	{
-		return $this->hasOne('UserRelation', 'id', 'user_id');
+		return $this->hasOne('UserRelation', 'user_id', 'id');
 	}
 
 	public function gender()

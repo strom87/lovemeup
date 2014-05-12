@@ -25,6 +25,7 @@ class UserSeeder extends Seeder {
 		$user->isActivated = true;
 		$user->isPaused = false;
 		$user->token = str_random(50);
+		$user->description = 'Denna heter kalle';
 		$user->lastLogin = date('Y-m-d H:i:s', time());
 		$user->lastActivity = date('Y-m-d H:i:s', time());
 

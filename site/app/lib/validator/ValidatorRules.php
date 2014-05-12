@@ -6,23 +6,23 @@ class ValidatorRules {
 
 	private static $email = 'required|email|unique:users,email';
 
-	private static $password = 'required|min:6|max:50';
+	private static $password = 'required|min:6|max:50|confirmed';
 
 	private static $birthYear = ['required', 'regex:/(19|20)[0-9]{2}/'];
 
-	private static $length = 'required|numeric|min:50|max:220';
+	private static $length = 'required|integer|min:50|max:220';
 
-	private static $accepted_rules = 'required|accepted';
+	private static $accepted_rules = 'accepted';
 
 	private static $min_age = 'required|integer_between:18,100';
 
 	private static $max_age = 'required|integer_between:18,100';
 
-	private static $gender_id = 'required|exists:genders,id';
+	private static $gender_id = 'required|integer|exists:genders,id';
 
-	private static $relationship_status_id = 'required|exists:reletionship_statuses,id';
+	private static $relationship_status_id = 'required|integer|exists:reletionship_statuses,id';
 
-	private static $relationship_search_id = 'required|exists:relationship_searches,id';
+	private static $relationship_search_id = 'required|integer|exists:relationship_searches,id';
 
 	public static function makeUser()
 	{
@@ -44,9 +44,7 @@ class ValidatorRules {
 		$relationship_rules = [
 			'partnerGender'=>self::$gender_id,
 			'relationshipStatus'=>self::$relationship_status_id,
-			'relationshipSearch'=>self::$relationship_search_id,
-			'minage'=>self::$min_age,
-			'maxage'=>self::$max_age
+			'relationshipSearch'=>self::$relationship_search_id
 		];
 
 		return $relationship_rules;

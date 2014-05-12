@@ -1,0 +1,64 @@
+html,
+body {
+  font-size: 15px;
+  font-family: "Open Sans", "Helvetica Neue", "Helvetica", "Arial", sans-serif/*rtl:prepend:"Droid Arabic Kufi","Droid Sans", */;
+  margin: 0px;
+  padding: 0px;
+  color: #555555;
+  min-width: 320px;
+  background-color: #fafafa;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5 {
+  font-family: "Source Sans Pro", "Helvetica Neue", "Helvetica", "Arial", sans-serif/*rtl:prepend:"Droid Arabic Kufi","Droid Sans", */;
+}
+
+textarea {
+  font-family: "Open Sans", "Helvetica Neue", "Helvetica", "Arial", sans-serif/*rtl:prepend:"Droid Arabic Kufi","Droid Sans", */;
+}
+
+.content-container {
+  margin: 0 auto;
+  max-width: 1024px;
+}
+
+.inner-content-container {
+  margin: 0px 5px 0px 5px;
+}
+
+.login-area {
+	color: #e2e2e2;
+	background-color: #2e2e2e;
+}
+
+.login-area label {
+	color: #e2e2e2 !important;
+}
+
+.login {
+	background-color: #2e2e2e !important;
+	max-width: 300px !important;
+}
+
+.rules {
+	color: #fc495e;
+	cursor: pointer;
+}
+
+.no-box-shadow {
+	-webkit-box-shadow: none !important;
+	-moz-box-shadow: none !important;
+	box-shadow: none !important;
+}
+
+.separator {
+	height: 20px;
+}
+
+.none {
+	display: none;
+}

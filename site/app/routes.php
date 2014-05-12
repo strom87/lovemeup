@@ -11,10 +11,20 @@
 |
 */
 
-Route::controller('test', 'HomeController');
+Route::controller('home', 'HomeController');
 
-Route::get('/', function()
+Route::group(['before'=>'guest'], function()
 {
-	return View::make('hello');
+	Route::get('/', 'AuthController@getIndex');
 });
+
+Route::group(['prefix'=>'api', 'before'=>'ajax'], function()
+{
+	Route::group(['before'=>'guest'], function()
+	{
+		Route::controller('auth', 'api\AuthController');
+	});
+});
+
+
 

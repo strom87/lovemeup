@@ -5,22 +5,31 @@ use User;
 
 class Authentication {
 
+	private $message;
+	private $errorType;
 	private $userId;
-	
-	protected $message;
-	protected $errorType;
 
-	public function login($name, $password)
+	public function message()
 	{
-		if (!$this->isUserInDatabase($name)) return false;
+		return $this->message;
+	}
+
+	public function errorType()
+	{
+		return $this->errorType;
+	}
+
+	public function login(array $data)
+	{
+		if (!$this->isUserInDatabase($data['name'])) return false;
 		
-		if (!$this->isUserPasswordCorrect($password)) return false;
+		if (!$this->isUserPasswordCorrect($data['password'])) return false;
 			
 		if (!$this->isUserActivated()) return false;
 				
 		if ($this->isUserPaused()) return false;
 					
-		return $this->isLoginCorrect($password);
+		return $this->isLoginCorrect($data['password']);
 	}
 
 	public function logout()
@@ -95,7 +104,8 @@ class Authentication {
 		{
 			case 'wrong':
 				$this->errorType = 1;
-				$this->message = trans('authentication.login.exists');
+				$this->message = trans('authentication.login.wrong');
+				break;
 			case 'activated':
 				$this->errorType = 2;
 				$this->message = trans('authentication.login.not_activated');
@@ -103,6 +113,7 @@ class Authentication {
 			case 'paused':
 				$this->errorType = 3;
 				$this->message = trans('authentication.login.paused');
+				break;
 		}
 	}
 

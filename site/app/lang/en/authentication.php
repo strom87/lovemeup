@@ -6,4 +6,4 @@ return array(
 		'wrong'			=> 'Email or password wrong',
 		'paused'		=> 'User is paused, unpause user?'
 	)
-)
+);

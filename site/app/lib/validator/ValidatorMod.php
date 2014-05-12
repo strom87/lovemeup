@@ -4,61 +4,44 @@ use Validator as V;
 
 abstract class ValidatorMod {
 
-	protected $errors = [];
+	protected $failed;
+	protected $messages;
+
+	public function __construct()
+	{
+		$this->messages = [];
+		$this->failed = false;
+	}
+
+	public function failed()
+	{
+		return $this->failed;
+	}
 
 	public function messages()
 	{
-		return $this->errors;
+		return $this->messages;
 	}
 
-	protected function validate($attributes, $ruelsOne, $rulesTwo, $mergeErrors = false)
-	{
-		if(is_null($rulesTwo)) {
-			return $this->validateOne($attributes, $ruelsOne, $mergeErrors);
-		} else {
-			return $this->validateTwo($attributes, $rulesOne, $rulesTwo, $mergeErrors);
-		}
-	}
-
-	private function validateOne($attributes, $rules, $mergeErrors)
+	protected function validate(array $attributes, array $rules, $mergeMessages = false)
 	{
 		$v = V::make($attributes, $rules);
 		
-		if($v->fails()) {
-			$this->addErrors($v->messages()->toArray(), null, $mergeErrors);
-			return false;
-		}
-
-		return true;
-	}
-
-	private function validateTwo($attributes, $rulesOne, $rulesTwo, $mergeErrors)
-	{
-		$v1 = V::make($attributes, $rulesOne);
-		$v2 = V::make($attributes, $rulesTwo);
+		if (!$v->fails()) return;
 		
-		if($v1->fails() || $v2->fails()) {
-			$this->addErrors($v1->messages()->toArray(), $v2->messages()->toArray(), $mergeErrors);
-			return false;
-		}
-
-		return true;
+		$this->failed = true;
+		$this->addMessages($v->messages()->toArray(), $mergeMessages);
 	}
 
-	private function addErrors($errorOne, $errorTwo, $mergeErrors)
+	private function addMessages(array $errors, $mergeMessages)
 	{
-		if(is_null($errorTwo)) {
-			if($mergeErrors) {
-				$this->errors = array_merge($this->errors, $errorOne);
-			} else {
-				$this->errors = $errorOne;
-			}
-		} else {
-			if($mergeErrors) {
-				$this->errors = array_merge($this->errors, $errorOne, $errorTwo);
-			} else {
-				$this->errors = array_merge($errorOne, $errorTwo);
-			}
+		if ($mergeMessages)
+		{
+			$this->messages = array_merge($this->messages, $errors);
+		}
+		else
+		{
+			$this->messages = $errors;
 		}
 	}
 	
