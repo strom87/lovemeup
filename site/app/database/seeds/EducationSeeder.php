@@ -1,5 +1,7 @@
 <?php
 
+use database\Education;
+
 class EducationSeeder extends Seeder {
 
 	/**

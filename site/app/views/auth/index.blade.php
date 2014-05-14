@@ -18,5 +18,7 @@
 
 	@include('auth.partial.rules')
 	@include('auth.partial.success')
+	@include('auth.partial.activated')
+	@include('auth.partial.password')
 	
 @stop

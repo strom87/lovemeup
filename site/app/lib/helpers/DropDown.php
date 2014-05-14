@@ -1,10 +1,12 @@
 <?php namespace helpers;
 
-use Gender;
-use RelationshipStatus;
-use RelationshipSearch;
 use helpers\Cache;
 use helpers\Basic;
+use database\Gender;
+use database\State;
+use database\City;
+use database\RelationshipStatus;
+use database\RelationshipSearch;
 
 class DropDown {
 
@@ -76,5 +78,34 @@ class DropDown {
 		}
 
 		return Cache::get('relationship_searches_list');
+	}
+
+	public static function states()
+	{
+		if (!Cache::has('states_list'))
+		{
+			$states = State::orderBy('name')->lists('name', 'id');
+
+			Cache::put('states_list', $states);
+		}
+
+		return Cache::get('states_list');
+	}
+
+	public static function cities($state_id = null)
+	{
+		if (!Cache::has('cities_list') || !is_null($state_id))
+		{
+			if (is_null($state_id))
+			{
+				$state_id = 1;
+			}
+
+			$states = City::where('state_id', $state_id)->orderBy('name')->lists('name', 'id');
+
+			Cache::put('cities_list', $states);
+		}
+
+		return Cache::get('cities_list');
 	}
 }

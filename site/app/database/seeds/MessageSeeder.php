@@ -1,5 +1,7 @@
 <?php
 
+use database\Message;
+
 class MessageSeeder extends Seeder {
 
 	/**

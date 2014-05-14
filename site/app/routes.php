@@ -13,11 +13,6 @@
 
 Route::controller('home', 'HomeController');
 
-Route::group(['before'=>'guest'], function()
-{
-	Route::get('/', 'AuthController@getIndex');
-});
-
 Route::group(['prefix'=>'api', 'before'=>'ajax'], function()
 {
 	Route::group(['before'=>'guest'], function()
@@ -26,5 +21,8 @@ Route::group(['prefix'=>'api', 'before'=>'ajax'], function()
 	});
 });
 
-
+Route::group(['before'=>'guest'], function()
+{
+	Route::controller('/', 'AuthController');
+});
 

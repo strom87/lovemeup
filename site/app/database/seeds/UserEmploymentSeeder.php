@@ -1,5 +1,7 @@
 <?php
 
+use database\UserEmployment;
+
 class UserEmploymentSeeder extends Seeder {
 
 	/**

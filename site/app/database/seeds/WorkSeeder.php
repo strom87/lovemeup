@@ -1,5 +1,7 @@
 <?php
 
+use database\Work;
+
 class WorkSeeder extends Seeder {
 
 	/**

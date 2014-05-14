@@ -1,5 +1,7 @@
 <?php
 
+use database\UserAppearance;
+
 class UserAppearanceSeeder extends Seeder {
 
 	/**

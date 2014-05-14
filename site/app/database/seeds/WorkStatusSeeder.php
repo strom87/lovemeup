@@ -1,5 +1,7 @@
 <?php
 
+use database\WorkStatus;
+
 class WorkStatusSeeder extends Seeder {
 
 	/**

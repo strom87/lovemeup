@@ -1,7 +1,7 @@
 <?php namespace auth;
 
 use Auth;
-use User;
+use database\User;
 
 class Authentication {
 

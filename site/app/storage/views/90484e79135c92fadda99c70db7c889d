@@ -1,0 +1,21 @@
+<?php if(Session::has('activated')): ?>
+	<div id="activatedModal" class="ui modal">
+		<i class="close icon"></i>
+		<div class="header">
+			<?php if(Session::get('activated')): ?>
+				<?php echo trans('auth.activated.pass.header'); ?>
+			<?php else: ?>
+				<?php echo trans('auth.activated.fail.header'); ?>
+			<?php endif; ?>
+		</div>
+		<div class="content">
+			<p>
+				<?php if(Session::get('activated')): ?>
+					<?php echo trans('auth.activated.pass.body'); ?>
+				<?php else: ?>
+					<?php echo trans('auth.activated.fail.body'); ?>
+				<?php endif; ?>
+			</p>
+		</div>
+	</div>
+<?php endif; ?>

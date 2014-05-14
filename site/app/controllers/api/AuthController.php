@@ -1,8 +1,11 @@
 <?php namespace api;
 
 use Input;
+use database\City;
+use file\Directory;
 use factory\UserFactory;
 use auth\Authentication;
+use mail\MailFactory;
 
 class AuthController extends \BaseController {
 
@@ -29,9 +32,26 @@ class AuthController extends \BaseController {
 	{
 		if ($this->userFactory->make(Input::all()))
 		{
+			$user = $this->userFactory->getUser();
+			Directory::createUserDirectory($user->name, public_path());
+			MailFactory::sendWelcome($user);
+			
 			return ['pass'=>true];
 		}
 
 		return $this->userFactory->messages(); 
+	}
+
+	public function postNewPassword()
+	{
+		if ($this->userFactory->newPassword(Input::all()))
+		{
+			MailFactory::sendNewPassword($this->userFactory->getUser(), $this->userFactory->getNewPassword());
+		}
+	}
+
+	public function postGetCities($id)
+	{
+		return City::where('state_id', $id)->orderBy('name')->lists('name', 'id');
 	}
 }

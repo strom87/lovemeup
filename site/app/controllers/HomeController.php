@@ -1,5 +1,6 @@
 <?php
 
+use database\User;
 use auth\Authentication;
 use factory\UserFactory;
 
@@ -14,7 +15,7 @@ class HomeController extends BaseController {
 
 	public function getIndex()
 	{
-		return User::find(1)->userRelation;
+		return public_path();
 	}
 
 

@@ -1,0 +1,28 @@
+<div id="passwordModal" class="ui modal">
+	<i class="close icon"></i>
+	<div class="header">
+		<?php echo trans('auth.password.header'); ?>
+	</div>
+	<div class="content">
+		<p>
+			<?php echo trans('auth.password.body'); ?>
+		</p>
+		<div class="ui form">
+			<div class="field">
+				<label><?php echo trans('auth.password.email'); ?></label>
+				<div class="ui left labeled input">
+					<?php echo Form::text('newPasswordEmail', null, ['placeholder'=>trans('auth.password.email')]); ?>
+				</div>
+			</div>
+			<div class="field">
+				<div id="newPassword" class="ui blue submit button">
+					<i id="newPasswordIcon" class="icon add"></i>
+					<?php echo trans('button.send'); ?>
+				</div>
+				<div id="newPasswordMessage" class="ui green message none">
+					<span><?php echo trans('auth.password.message'); ?></span>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>

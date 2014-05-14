@@ -1,5 +1,7 @@
 <?php
 
+use database\EyeColor;
+
 class EyeColorSeeder extends Seeder {
 
 	/**

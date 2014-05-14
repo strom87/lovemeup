@@ -1,0 +1,24 @@
+
+<?php $__env->startSection('content'); ?>
+	
+	<div class="login-area">
+		<div class="content-container">
+			<div class="inner-content-container">
+				<?php echo $__env->make('auth.partial.login', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>
+			</div>
+		</div>
+	</div>
+	<div class="separator"></div>
+	<div class="content-container">
+		<div class="inner-content-container">
+			<?php echo $__env->make('auth.partial.register', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>
+		</div>
+	</div>
+
+	<?php echo $__env->make('auth.partial.rules', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>
+	<?php echo $__env->make('auth.partial.success', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>
+	<?php echo $__env->make('auth.partial.activated', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>
+	<?php echo $__env->make('auth.partial.password', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>
+	
+<?php $__env->stopSection(); ?>
+<?php echo $__env->make('layouts.auth', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>

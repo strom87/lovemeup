@@ -1,5 +1,7 @@
 <?php
 
+use database\Country;
+
 class CountrySeeder extends Seeder {
 
 	/**
@@ -11,7 +13,7 @@ class CountrySeeder extends Seeder {
 	{
 		Country::truncate();
 
-		//Country::create(['name'=>'Inga']);
+		Country::create(['name'=>'Sverige']);
 	}
 
 }

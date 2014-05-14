@@ -1,5 +1,7 @@
 <?php
 
+use database\Pet;
+
 class PetSeeder extends Seeder {
 
 	/**

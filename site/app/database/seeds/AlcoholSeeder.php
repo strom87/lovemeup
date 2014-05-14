@@ -1,5 +1,7 @@
 <?php
 
+use database\Alcohol;
+
 class AlcoholSeeder extends Seeder {
 
 	/**

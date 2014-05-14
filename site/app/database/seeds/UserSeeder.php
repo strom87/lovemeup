@@ -1,5 +1,7 @@
 <?php
 
+use database\User;
+
 class UserSeeder extends Seeder {
 
 	/**

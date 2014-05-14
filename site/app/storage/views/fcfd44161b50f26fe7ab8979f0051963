@@ -1,0 +1,13 @@
+<!DOCTYPE html>
+<html lang="sv">
+	<head>
+		<meta charset="utf-8">
+	</head>
+	<body>
+		<h2><?php echo trans('mail.welcome.header'); ?></h2>
+		<p>
+			<?php echo trans('mail.welcome.body'); ?>
+		</p>
+		<a href="<?php echo $link; ?>"><?php echo trans('mail.welcome.link'); ?></a>
+	</body>
+</html>

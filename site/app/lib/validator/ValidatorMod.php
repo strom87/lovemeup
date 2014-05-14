@@ -4,8 +4,8 @@ use Validator as V;
 
 abstract class ValidatorMod {
 
-	protected $failed;
-	protected $messages;
+	private $failed;
+	private $messages;
 
 	public function __construct()
 	{

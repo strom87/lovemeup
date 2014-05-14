@@ -1,5 +1,7 @@
 <?php
 
+use database\Physique;
+
 class PhysiqueSeeder extends Seeder {
 
 	/**

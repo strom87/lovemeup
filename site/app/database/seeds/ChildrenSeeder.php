@@ -1,5 +1,7 @@
 <?php
 
+use database\Children;
+
 class ChildrenSeeder extends Seeder {
 
 	/**

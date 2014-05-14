@@ -33,7 +33,6 @@ class DatabaseSeeder extends Seeder {
 		$this->call('UserDetailSeeder');
 		$this->call('UserEmploymentSeeder');
 		$this->call('UserAppearanceSeeder');
-		//$this->call('');
 	}
 
 }

@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="sv">
+	<head>
+		<meta charset="utf-8">
+	</head>
+	<body>
+		<h2><?php echo trans('mail.password.header'); ?></h2>
+		<p>
+			<?php echo trans('mail.password.body'); ?>
+		</p>
+		<p>
+			<?php echo trans('mail.password.new'); ?>
+			<?php echo $password; ?>
+		</p>
+	</body>
+</html>

@@ -1,15 +1,21 @@
 <div id="rulesModal" class="ui modal">
 	<i class="close icon"></i>
 	<div class="header">
-		Regler
+		{{ trans('auth.rules.header') }}
 	</div>
 	<div class="content">
+		<h3>{{ trans('auth.rules.main.header') }}</h3>
 		<div class="ui bulleted list">
-			<div class="item">Regel 1</div>
-			<div class="item">Regel 2</div>
-			<div class="item">Regel 3</div>
-			<div class="item">Regel 4</div>
-			<div class="item">Regel 5</div>
+			@foreach(trans('auth.rules.main.rules') as $rule)
+				<div class="item">{{ $rule }}</div>
+			@endforeach
+		</div>
+
+		<h3>{{ trans('auth.rules.illegal.header') }}</h3>
+		<div class="ui bulleted list">
+			@foreach(trans('auth.rules.illegal.rules') as $rule)
+				<div class="item">{{ $rule }}</div>
+			@endforeach
 		</div>
 	</div>
 </div>

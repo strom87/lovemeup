@@ -1,5 +1,7 @@
 <?php
 
+use database\Tobacco;
+
 class TobaccoSeeder extends Seeder {
 
 	/**

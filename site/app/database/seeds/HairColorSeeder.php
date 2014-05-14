@@ -1,5 +1,7 @@
 <?php
 
+use database\HairColor;
+
 class HairColorSeeder extends Seeder {
 
 	/**

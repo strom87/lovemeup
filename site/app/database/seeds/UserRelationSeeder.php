@@ -1,5 +1,7 @@
 <?php
 
+use database\UserRelation;
+
 class UserRelationSeeder extends Seeder {
 
 	/**

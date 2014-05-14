@@ -1,5 +1,7 @@
 <?php
 
+use database\RelationshipSearch;
+
 class RelationshipSearchSeeder extends Seeder {
 
 	/**

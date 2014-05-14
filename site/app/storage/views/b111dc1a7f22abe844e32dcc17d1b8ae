@@ -1,0 +1,21 @@
+<div id="rulesModal" class="ui modal">
+	<i class="close icon"></i>
+	<div class="header">
+		<?php echo trans('auth.rules.header'); ?>
+	</div>
+	<div class="content">
+		<h3><?php echo trans('auth.rules.main.header'); ?></h3>
+		<div class="ui bulleted list">
+			<?php foreach(trans('auth.rules.main.rules') as $rule): ?>
+				<div class="item"><?php echo $rule; ?></div>
+			<?php endforeach; ?>
+		</div>
+
+		<h3><?php echo trans('auth.rules.illegal.header'); ?></h3>
+		<div class="ui bulleted list">
+			<?php foreach(trans('auth.rules.illegal.rules') as $rule): ?>
+				<div class="item"><?php echo $rule; ?></div>
+			<?php endforeach; ?>
+		</div>
+	</div>
+</div>

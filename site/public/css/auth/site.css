@@ -44,8 +44,8 @@ textarea {
 	max-width: 300px !important;
 }
 
-.rules {
-	color: #fc495e;
+.point {
+	color: #d95c5c;
 	cursor: pointer;
 }
 
@@ -61,4 +61,9 @@ textarea {
 
 .none {
 	display: none;
+}
+
+.pading-bot-top {
+	padding-top: 5px;
+	padding-bottom: 5px;
 }

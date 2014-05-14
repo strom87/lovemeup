@@ -1,5 +1,7 @@
 <?php
 
+use database\RelationshipStatus;
+
 class RelationshipStatusSeeder extends Seeder {
 
 	/**
