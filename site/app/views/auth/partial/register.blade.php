@@ -1,4 +1,4 @@
-{{ Form::open(['id'=>'registerForm', 'class'=>'ui form segment']) }}
+{{ Form::open(['id'=>'register_form', 'class'=>'ui form segment']) }}
 	<h2>{{ trans('auth.register.header') }}</h2>
 	<div class="two column stackable ui grid">
 		<div class="column">
@@ -7,7 +7,7 @@
 					<label>{{ trans('auth.register.email') }}</label>
 					<div class="ui left labeled input">
 						{{ Form::text('email', null, ['placeholder'=>trans('auth.register.email')]) }}
-						<div id="emailError" class="ui red message none">
+						<div id="email_error" class="ui red message none">
 							<span></span>
 						</div>
 					</div>
@@ -16,7 +16,7 @@
 					<label>{{ trans('auth.register.name') }}</label>
 					<div class="ui left labeled input">
 						{{ Form::text('name', null, ['placeholder'=>trans('auth.register.name')]) }}
-						<div id="nameError" class="ui red message none">
+						<div id="name_error" class="ui red message none">
 							<span></span>
 						</div>
 					</div>
@@ -25,7 +25,7 @@
 					<label>{{ trans('auth.register.password') }}</label>
 					<div class="ui left labeled input">
 						{{ Form::password('password', ['placeholder'=>trans('auth.register.password')]) }}
-						<div id="passwordError" class="ui red message none">
+						<div id="password_error" class="ui red message none">
 							<span></span>
 						</div>
 					</div>
@@ -72,7 +72,7 @@
 					<div class="field">
 						<label>{{ trans('auth.register.birth_year') }}</label>
 						<div class="ui fluid selection dropdown">
-							<input type="hidden" name="birthYear">
+							<input type="hidden" name="birth_year">
 							<div class="default text">{{ trans('auth.register.birth_year_pick') }}</div>
 							<i class="dropdown icon"></i>
 							<div class="menu">
@@ -113,7 +113,7 @@
 					<div class="field">
 						<label>{{ trans('auth.register.partner_gender') }}</label>
 						<div class="ui fluid selection dropdown">
-							<input type="hidden" name="partnerGender">
+							<input type="hidden" name="partner_gender">
 							<div class="default text">{{ trans('auth.register.partner_gender_pick') }}</div>
 							<i class="dropdown icon"></i>
 							<div class="menu">
@@ -128,7 +128,7 @@
 					<div class="field">
 						<label>{{ trans('auth.register.relationship_status') }}</label>
 						<div class="ui fluid selection dropdown">
-							<input type="hidden" name="relationshipStatus">
+							<input type="hidden" name="relationship_status">
 							<div class="default text">{{ trans('auth.register.relationship_status_pick') }}</div>
 							<i class="dropdown icon"></i>
 							<div class="menu">
@@ -141,7 +141,7 @@
 					<div class="field">
 						<label>{{ trans('auth.register.relationship_search') }}</label>
 						<div class="ui fluid selection dropdown">
-							<input type="hidden" name="relationshipSearch">
+							<input type="hidden" name="relationship_search">
 							<div class="default text">{{ trans('auth.register.relationship_search_pick') }}</div>
 							<i class="dropdown icon"></i>
 							<div class="menu">
@@ -157,13 +157,13 @@
 	</div>
 	<div class="inline field">
 		<div class="ui checkbox">
-			<input type="checkbox" name="acceptedRules" id="acceptedRules">
+			<input type="checkbox" name="accepted_rules" id="accepted_rules">
 			<label>{{ trans('auth.register.accepted_rules') }}</label>
 		</div>
-		<span id="readRules" class="point">{{ trans('auth.register.read_rules') }}</span>
+		<span id="read_rules" class="point">{{ trans('auth.register.read_rules') }}</span>
 	</div>
 	<div id="register" class="ui teal submit button">
-		<i id="registerIcon" class="icon add"></i>
+		<i id="register_icon" class="icon add"></i>
 		{{ trans('button.register') }}
 	</div>
 {{ Form::close() }}

@@ -78,7 +78,7 @@ class Authentication {
 
 	private function isUserActivated()
 	{
-		if (!User::where('id', $this->userId)->pluck('isActivated'))
+		if (!User::where('id', $this->userId)->pluck('is_activated'))
 		{
 			$this->setError('activated');
 			return false;
@@ -89,7 +89,7 @@ class Authentication {
 
 	private function isUserPaused()
 	{
-		if (User::where('id', $this->userId)->pluck('isPaused'))
+		if (User::where('id', $this->userId)->pluck('is_paused'))
 		{
 			$this->setError('paused');
 			return true;

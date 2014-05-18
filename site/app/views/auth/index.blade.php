@@ -5,7 +5,15 @@
 	<div class="login-area">
 		<div class="content-container">
 			<div class="inner-content-container">
-				@include('auth.partial.login')
+				@include('auth.partial.logo')
+				<div class="two column stackable ui grid">
+					<div class="column">
+						@include('auth.partial.login')
+					</div>
+					<div class="column">
+						@include('auth.partial.message')
+					</div>
+				</div>
 			</div>
 		</div>
 	</div>

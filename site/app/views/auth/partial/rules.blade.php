@@ -1,4 +1,4 @@
-<div id="rulesModal" class="ui modal">
+<div id="rules_modal" class="ui modal">
 	<i class="close icon"></i>
 	<div class="header">
 		{{ trans('auth.rules.header') }}

@@ -63,7 +63,23 @@ textarea {
 	display: none;
 }
 
-.pading-bot-top {
-	padding-top: 5px;
+.pading-header {
+	padding-top: 20px;
 	padding-bottom: 5px;
+}
+
+.pading-forgot {
+	padding-top: 5px;
+}
+
+.no-pading {
+	padding: 0px !important;
+}
+
+.logo {
+	margin-top: 10px;
+}
+
+.font-20 {
+	font-size: 20px;
 }

@@ -10,15 +10,15 @@
 	<link rel="shortcut icon" href={{ asset('img/favicon.ico') }} >
 
 	{{ HTML::style('css/semantic.min.css') }}
-	{{ HTML::style('css/auth/site.css') }}
+	{{ HTML::style('css/auth/auth.css') }}
 </head>
 <body>	
-
+	
 	@yield('content')
 
 	{{ HTML::script('js/jquery-2.1.1.min.js') }}
 	{{ HTML::script('js/semantic.min.js') }}
 	{{ HTML::script('js/help.js') }}
-	{{ HTML::script('js/auth/script.js') }}
+	{{ HTML::script('js/auth/auth-script.js') }}
 </body>
 </html>

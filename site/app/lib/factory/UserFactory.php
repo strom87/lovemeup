@@ -35,16 +35,16 @@ class UserFactory extends ValidatorMod {
 			'name'=>$attributes['name'],
 			'email'=>$attributes['email'],
 			'password'=>$attributes['password'],
-			'birthYear'=>$attributes['birthYear'],
+			'birth_year'=>$attributes['birth_year'],
 			'length'=>$attributes['length'],
-			'acceptedRules'=>isset($attributes['acceptedRules']),
+			'accepted_rules'=>isset($attributes['accepted_rules']),
 			'token'=>str_random(50)
 		]);
 
 		$uRelation = new UserRelation([
-			'gender_id'=>$attributes['partnerGender'],
-			'relationship_status_id'=>$attributes['relationshipStatus'],
-			'relationship_serch_id'=>$attributes['relationshipSearch'],
+			'gender_id'=>$attributes['partner_gender'],
+			'relationship_status_id'=>$attributes['relationship_status'],
+			'relationship_serch_id'=>$attributes['relationship_search'],
 			'minage'=>18,
 			'maxage'=>100
 		]);
@@ -100,7 +100,7 @@ class UserFactory extends ValidatorMod {
 	public function activate($id)
 	{
 		$user = User::find($id);
-		$user->isActivated = true;
+		$user->is_activated = true;
 		$user->save();
 
 		$this->user = $user;
@@ -109,7 +109,7 @@ class UserFactory extends ValidatorMod {
 	public function pause($id, $status)
 	{
 		$user = User::find($id);
-		$user->isPaused = $status;
+		$user->is_paused = $status;
 		$user->save();
 
 		$this->user = $user;

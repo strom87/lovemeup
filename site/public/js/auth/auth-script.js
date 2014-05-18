@@ -2,8 +2,8 @@ function loginUser() {
 	loader('login', true);
 
 	var input = help.getInput({
-		name: 'loginName',
-		password: 'loginPassword'
+		name: 'login_name',
+		password: 'login_password'
 	}, 'name');
 
 	$.post('api/auth/login', input).done(function(data) {
@@ -27,24 +27,25 @@ function registerUser() {
 		password: 'password',
 		password_confirmation: 'password_confirmation',
 		gender: 'gender',
-		partnerGender: 'partnerGender',
-		birthYear: 'birthYear',
+		partner_gender: 'partner_gender',
+		birth_year: 'birth_year',
 		length: 'length',
 		state: 'state',
 		city: 'city',
-		relationshipStatus: 'relationshipStatus',
-		relationshipSearch: 'relationshipSearch',
-		acceptedRules: 'acceptedRules'
+		relationship_status: 'relationship_status',
+		relationship_search: 'relationship_search',
+		accepted_rules: 'accepted_rules'
 	}, 'name');
 
-	input.acceptedRules = $('[name="acceptedRules"]').is(':checked');
+	input.accepted_rules = $('[name="accepted_rules"]').is(':checked');
 
 	$.post('api/auth/make-user', input).done(function(data) {
 		if(data.pass) {
 			modals('success');
-		} else {
-			registerErrors(data);
-		}
+		} 
+		
+		registerErrors(data);
+
 		loader('register', false);
 	}).fail(function(e) {
 		loader('register', false);
@@ -82,7 +83,7 @@ function newPassword() {
 	loader('password', true);
 	newPasswordMessage(false);
 
-	var input = help.getInput({ email: 'newPasswordEmail' }, 'name');
+	var input = help.getInput({ email: 'new_password_email' }, 'name');
 
 	$.post('api/auth/new-password', input).done(function() {
 		loader('password', false);
@@ -95,26 +96,26 @@ function newPassword() {
 
 function newPasswordMessage(show) {
 	if(show) {
-		$('#newPasswordMessage').slideDown('fast');
+		$('#new_password_message').slideDown('fast');
 	} else {
-		$('#newPasswordMessage').slideUp('fast');
+		$('#new_password_message').slideUp('fast');
 	}
 }
 
 function loginError(message) {
-	$('#loginError').slideDown('fast').find('span').html(message);
+	$('#login_error').slideDown('fast').find('span').html(message);
 }
 
 function registerErrors(data) {
 	var text = ['email', 'name', 'password'];
-	var drop = ['state', 'city', 'gender', 'partnerGender', 'birthYear', 'length', 'relationshipStatus', 'relationshipSearch', 'acceptedRules'];
+	var drop = ['state', 'city', 'gender', 'partner_gender', 'birth_year', 'length', 'relationship_status', 'relationship_search', 'accepted_rules'];
 
 	for(var x in text) {
 		if(data[text[x]] != undefined) {
-			$('#'+text[x]+'Error').slideDown('fast').find('span').html(data[text[x]][0]).parent().parent().parent().addClass('error');
+			$('#'+text[x]+'_error').slideDown('fast').find('span').html(data[text[x]][0]).parent().parent().parent().addClass('error');
 		}
 		else
-			$('#'+text[x]+'Error').slideUp('fast').parent().parent().removeClass('error');
+			$('#'+text[x]+'_error').slideUp('fast').parent().parent().removeClass('error');
 	}
 
 	for(var x in drop) {
@@ -126,7 +127,7 @@ function registerErrors(data) {
 }
 
 function successModalExists() {
-	if($('#activatedModal').length) {
+	if($('#activated_modal').length) {
 		modals('activated');
 	}
 }
@@ -134,21 +135,21 @@ function successModalExists() {
 function loader(type, show) {
 	if(type == 'login') {
 		if(show) {
-			$('#loginIcon').removeClass('sign in').addClass('loading');
+			$('#login_icon').removeClass('sign in').addClass('loading');
 		} else {
-			$('#loginIcon').removeClass('loading').addClass('sign in');
+			$('#login_icon').removeClass('loading').addClass('sign in');
 		}
 	} else if(type == 'register') {
 		if(show) {
-			$('#registerIcon').removeClass('add').addClass('loading');
+			$('#register_icon').removeClass('add').addClass('loading');
 		} else {
-			$('#registerIcon').removeClass('loading').addClass('add');
+			$('#register_icon').removeClass('loading').addClass('add');
 		}
 	} else if(type == 'password') {
 		if(show) {
-			$('#newPasswordIcon').removeClass('add').addClass('loading');
+			$('#new_password_icon').removeClass('add').addClass('loading');
 		} else {
-			$('#newPasswordIcon').removeClass('loading').addClass('add');
+			$('#new_password_icon').removeClass('loading').addClass('add');
 		}
 	} 
 }
@@ -156,16 +157,16 @@ function loader(type, show) {
 function modals(type) {
 	switch(type) {
 		case 'rules':
-			$('#rulesModal').modal('show');
+			$('#rules_modal').modal('show');
 			break;
 		case 'success':
-			$('#successModal').modal('show');
+			$('#success_modal').modal('show');
 			break;
 		case 'activated':
-			$('#activatedModal').modal('show');
+			$('#activated_modal').modal('show');
 			break;
 		case 'password':
-			$('#passwordModal').modal('show');
+			$('#password_modal').modal('show');
 			break;
 	}
 }
@@ -180,11 +181,11 @@ $(document).on('ready', function() {
 		}
 	});
 
-	$('#readRules').on('click', function() {
+	$('#read_rules').on('click', function() {
 		modals('rules');
 	});
 
-	$('#showNewPassword').on('click', function() {
+	$('#show_new_password').on('click', function() {
 		modals('password');
 	});
 
@@ -192,9 +193,9 @@ $(document).on('ready', function() {
 
 	$('#login').on('click', loginUser);
 
-	$('#newPassword').on('click', newPassword);
+	$('#new_password').on('click', newPassword);
 
-	$('.login').on('keypress', function(e) {
+	$('.login').on('keyup', function(e) {
 		if(help.isEnterKey(e)) {
 			loginUser();
 		}

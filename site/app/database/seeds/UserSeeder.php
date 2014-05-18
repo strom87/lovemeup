@@ -22,14 +22,14 @@ class UserSeeder extends Seeder {
 		$user->email = 'kalle@kalle.se';
 		$user->password = 'asdasd';
 		$user->length = 190;
-		$user->birthYear = 1980;
-		$user->acceptedRules = true;
-		$user->isActivated = true;
-		$user->isPaused = false;
+		$user->birth_year = 1980;
+		$user->accepted_rules = true;
+		$user->is_activated = true;
+		$user->is_paused = false;
 		$user->token = str_random(50);
 		$user->description = 'Denna heter kalle';
-		$user->lastLogin = date('Y-m-d H:i:s', time());
-		$user->lastActivity = date('Y-m-d H:i:s', time());
+		$user->last_login_at = date('Y-m-d H:i:s', time());
+		$user->last_activity_at = date('Y-m-d H:i:s', time());
 
 		$user->save();
 	}

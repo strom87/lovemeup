@@ -22,15 +22,15 @@ class UsersTable extends Migration {
 			$table->string('name', 30);
 			$table->string('email', 100);
 			$table->string('password', 60);
-			$table->integer('birthYear');
+			$table->integer('birth_year');
 			$table->integer('length');
-			$table->boolean('acceptedRules');
-			$table->boolean('isActivated');
-			$table->boolean('isPaused');
+			$table->boolean('accepted_rules');
+			$table->boolean('is_activated');
+			$table->boolean('is_paused');
 			$table->string('token', 50);
 			$table->text('description');
-			$table->timestamp('lastLogin');
-			$table->timestamp('lastActivity');
+			$table->timestamp('last_login_at');
+			$table->timestamp('last_activity_at');
 			$table->timestamps();
 		});
 	}

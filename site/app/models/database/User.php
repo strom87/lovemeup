@@ -15,7 +15,7 @@ class User extends Eloquent implements UserInterface, RemindableInterface {
 	 */
 	protected $table = 'users';
 
-	protected $fillable = array('country_id', 'state_id', 'city_id', 'gender_id', 'name', 'email', 'password', 'birthYear', 'length', 'token', 'description', 'acceptedRules', 'isActivated', 'isPaused');
+	protected $fillable = array('country_id', 'state_id', 'city_id', 'gender_id', 'name', 'email', 'password', 'birth_year', 'length', 'token', 'description', 'accepted_rules', 'is_activated', 'is_paused');
 
 	/**
 	 * The attributes excluded from the model's JSON form.
@@ -123,6 +123,11 @@ class User extends Eloquent implements UserInterface, RemindableInterface {
 	public function toUser()
 	{
 		return $this->hasManyThrough('database\Message', 'database\UserMessage', 'message_id', 'to_user_id');
+	}
+
+	public function images()
+	{
+		return $this->hasMany('database\Image', 'user_id', 'id');
 	}
 
 }

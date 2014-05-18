@@ -11,14 +11,25 @@
 |
 */
 
-Route::controller('home', 'HomeController');
+
 
 Route::group(['prefix'=>'api', 'before'=>'ajax'], function()
 {
 	Route::group(['before'=>'guest'], function()
 	{
-		Route::controller('auth', 'api\AuthController');
+		Route::controller('auth', 'api\ApiAuthController');
 	});
+
+	Route::group(['before'=>'auth'], function()
+	{
+		Route::controller('profile', 'api\ApiProfileController');
+	});
+});
+
+Route::group(['before'=>'auth'], function()
+{
+	Route::controller('home', 'HomeController');
+	Route::controller('profile', 'ProfileController');
 });
 
 Route::group(['before'=>'guest'], function()

@@ -10,15 +10,15 @@
 	<link rel="shortcut icon" href=<?php echo asset('img/favicon.ico'); ?> >
 
 	<?php echo HTML::style('css/semantic.min.css'); ?>
-	<?php echo HTML::style('css/auth/site.css'); ?>
+	<?php echo HTML::style('css/auth/auth.css'); ?>
 </head>
 <body>	
-
+	
 	<?php echo $__env->yieldContent('content'); ?>
 
 	<?php echo HTML::script('js/jquery-2.1.1.min.js'); ?>
 	<?php echo HTML::script('js/semantic.min.js'); ?>
 	<?php echo HTML::script('js/help.js'); ?>
-	<?php echo HTML::script('js/auth/script.js'); ?>
+	<?php echo HTML::script('js/auth/auth-script.js'); ?>
 </body>
 </html>

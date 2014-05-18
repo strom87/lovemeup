@@ -1,5 +1,5 @@
 @if(Session::has('activated'))
-	<div id="activatedModal" class="ui modal">
+	<div id="activated_modal" class="ui modal">
 		<i class="close icon"></i>
 		<div class="header">
 			@if(Session::get('activated'))

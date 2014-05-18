@@ -39,9 +39,9 @@ class ValidatorRules {
 			'name'=>self::$name,
 			'email'=>self::$email,
 			'password'=>self::$password,
-			'birthYear'=>self::$birthYear,
+			'birth_year'=>self::$birthYear,
 			'length'=>self::$length,
-			'acceptedRules'=>self::$accepted_rules
+			'accepted_rules'=>self::$accepted_rules
 		];
 
 		return $make_user_rules;
@@ -55,9 +55,9 @@ class ValidatorRules {
 	public static function makeRelationship()
 	{
 		$relationship_rules = [
-			'partnerGender'=>self::$gender_id,
-			'relationshipStatus'=>self::$relationship_status_id,
-			'relationshipSearch'=>self::$relationship_search_id
+			'partner_gender'=>self::$gender_id,
+			'relationship_status'=>self::$relationship_status_id,
+			'relationship_search'=>self::$relationship_search_id
 		];
 
 		return $relationship_rules;

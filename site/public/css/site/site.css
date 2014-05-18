@@ -1,0 +1,86 @@
+html,
+body {
+  font-size: 15px;
+  font-family: "Open Sans", "Helvetica Neue", "Helvetica", "Arial", sans-serif/*rtl:prepend:"Droid Arabic Kufi","Droid Sans", */;
+  margin: 0px;
+  padding: 0px;
+  color: #555555;
+  min-width: 320px;
+  background-color: #fafafa;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5 {
+  font-family: "Source Sans Pro", "Helvetica Neue", "Helvetica", "Arial", sans-serif/*rtl:prepend:"Droid Arabic Kufi","Droid Sans", */;
+}
+
+textarea {
+  font-family: "Open Sans", "Helvetica Neue", "Helvetica", "Arial", sans-serif/*rtl:prepend:"Droid Arabic Kufi","Droid Sans", */;
+}
+
+.ui.menu {
+  border-radius: 0px;
+}
+
+.content-container {
+  margin: 0 auto;
+  max-width: 1024px;
+}
+
+.inner-content-container {
+  margin: 0px 5px 0px 5px;
+}
+
+.custom-file-upload-hidden {
+    display: none;
+    visibility: hidden;
+    position: absolute;
+    left: -9999px;
+}
+.custom-file-upload {
+    display: block;
+    width: auto;
+    font-size: 16px;
+    margin-top: 30px;
+    border: 1px solid #ccc;
+    label {
+        display: block;
+        margin-bottom: 5px;
+    }
+}
+
+.file-upload-wrapper {
+    position: relative; 
+    margin-bottom: 5px;
+    
+}
+.file-upload-input {
+    width: 215px;
+    color: #333;
+    font-size: 16px;
+    padding: 11px 17px; 
+    border: 1px solid #ccc;
+    background-color: #fff;
+    float: left; /* IE 9 Fix */
+}
+
+.file-upload-button {
+    cursor: pointer; 
+    display: inline-block; 
+    color: #fff;
+    font-size: 16px;
+    text-transform: uppercase;
+    padding: 11px 20px; 
+    border: none;
+    margin-left: -1px;  
+    background-color: #E96633;
+    border: 1px solid #E96633;
+    float: left; /* IE 9 Fix */
+}
+
+.file-upload-button:hover {
+  background-color: #E46432;
+}

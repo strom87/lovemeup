@@ -4,7 +4,15 @@
 	<div class="login-area">
 		<div class="content-container">
 			<div class="inner-content-container">
-				<?php echo $__env->make('auth.partial.login', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>
+				<?php echo $__env->make('auth.partial.logo', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>
+				<div class="two column stackable ui grid">
+					<div class="column">
+						<?php echo $__env->make('auth.partial.login', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>
+					</div>
+					<div class="column">
+						<?php echo $__env->make('auth.partial.message', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>
+					</div>
+				</div>
 			</div>
 		</div>
 	</div>

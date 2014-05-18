@@ -2,12 +2,12 @@
 
 use Input;
 use database\City;
-use file\Directory;
+use dir\Directory;
 use factory\UserFactory;
 use auth\Authentication;
 use mail\MailFactory;
 
-class AuthController extends \BaseController {
+class ApiAuthController extends \BaseController {
 
 	protected $authentication;
 	protected $userFactory;
