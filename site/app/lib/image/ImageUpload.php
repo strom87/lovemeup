@@ -37,7 +37,7 @@ class ImageUpload {
 
 			# resize the large, medium and small images
 			$this->imageResize->resize($paths['large'], 1000, 1000);
-			$this->imageResize->resize($paths['medium'], 500, 500);
+			$this->imageResize->resize($paths['medium'], 400, 400);
 			$this->imageResize->resize($paths['small'], 200, 200);
 
 			$filenames[] = $filename;

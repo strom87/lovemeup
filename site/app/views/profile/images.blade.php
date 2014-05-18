@@ -6,6 +6,8 @@
 
 	@include('profile.partial.upload')
 
+	@include('profile.partial.imagelist')
+
 @stop
 
 @section('script')

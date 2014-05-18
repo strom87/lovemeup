@@ -1,7 +1,7 @@
 <?php
 
 use database\User;
-use view\AuthModel;
+use view\auth\AuthModel;
 use factory\UserFactory;
 
 class AuthController extends BaseController {

@@ -10,11 +10,12 @@
 	<link rel="shortcut icon" href={{ asset('img/favicon.ico') }} >
 
 	{{ HTML::style('css/semantic.min.css') }}
+	{{ HTML::style('css/magnific-popup.css') }}
 	{{ HTML::style('css/site/site.css') }}
 </head>
 <body>	
-	<div class="ui inverted menu">
-		<a class="item" href="{{ url('home') }}">
+	<div class="ui inverted main menu">
+		<a id="home" class="item" href="{{ url('/') }}">
 			<i class="home icon"></i>
 			LoveMeUp
 		</a>
@@ -37,7 +38,10 @@
 
 	{{ HTML::script('js/jquery-2.1.1.min.js') }}
 	{{ HTML::script('js/semantic.min.js') }}
+	{{ HTML::script('js/jquery.magnific-popup.min.js') }}
+	{{ HTML::script('js/mustache.js') }}
 	{{ HTML::script('js/help.js') }}
+	{{ HTML::script('js/site/site.js') }}
 
 	@yield('script')
 	

@@ -2,33 +2,35 @@
 
 class ValidatorRules {
 
-	private static $name = 'required|min:1|max:30|unique:users,name';
+	public static $name = 'required|min:1|max:30|unique:users,name';
 
-	private static $email = 'required|email|unique:users,email';
+	public static $email = 'required|email|unique:users,email';
 
-	private static $email_exist = 'required|email|exists:users,email';
+	public static $email_exist = 'required|email|exists:users,email';
 
-	private static $password = 'required|min:6|max:50|confirmed';
+	public static $password = 'required|min:6|max:50|confirmed';
 
-	private static $birthYear = ['required', 'regex:/(19|20)[0-9]{2}/'];
+	public static $birthYear = ['required', 'regex:/(19|20)[0-9]{2}/'];
 
-	private static $length = 'required|integer|min:50|max:220';
+	public static $length = 'required|integer|min:50|max:220|integer_between:50,220';
 
-	private static $accepted_rules = 'accepted';
+	public static $accepted_rules = 'accepted';
 
-	private static $min_age = 'required|integer_between:18,100';
+	public static $min_age = 'required|integer_between:18,100';
 
-	private static $max_age = 'required|integer_between:18,100';
+	public static $max_age = 'required|integer_between:18,100';
 
-	private static $gender_id = 'required|integer|exists:genders,id';
+	public static $gender_id = 'required|integer|exists:genders,id';
 
-	private static $relationship_status_id = 'required|integer|exists:reletionship_statuses,id';
+	public static $relationship_status_id = 'required|integer|exists:reletionship_statuses,id';
 
-	private static $relationship_search_id = 'required|integer|exists:relationship_searches,id';
+	public static $relationship_search_id = 'required|integer|exists:relationship_searches,id';
 
-	private static $state_id = 'required|integer|exists:states,id';
+	public static $state_id = 'required|integer|exists:states,id';
 
-	private static $city_id = 'required|integer|exists:cities,id';
+	public static $city_id = 'required|integer|exists:cities,id';
+
+	public static $image_description = 'max:255';
 
 	public static function makeUser()
 	{
@@ -61,6 +63,11 @@ class ValidatorRules {
 		];
 
 		return $relationship_rules;
+	}
+
+	public static function updateImage()
+	{
+		return ['description'=>self::$image_description];
 	}
 
 }

@@ -8,7 +8,7 @@ function loginUser() {
 
 	$.post('api/auth/login', input).done(function(data) {
 		if(data.pass) {
-			window.location.href = '/home';
+			window.location.reload();
 		}
 		loginError(data);
 		loader('login', false);

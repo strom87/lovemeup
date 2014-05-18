@@ -1,4 +1,4 @@
-<?php namespace view;
+<?php namespace view\auth;
 
 use helpers\DropDown;
 

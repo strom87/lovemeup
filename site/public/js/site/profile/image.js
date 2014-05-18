@@ -1,11 +1,36 @@
+var messages = {};
+
+function saveImage(image_id, input) {
+	showButtonLoad('save', image_id, true);
+	$.post(help.url('api/profile/edit-image/'+image_id), input).done(function(data) {
+		showButtonLoad('save', data.id, false);
+	}).fail(function(e) {
+		console.log(e);
+	})
+}
+
+function deleteImage(image_id) {
+	showButtonLoad('delete', image_id, true);
+	$.post(help.url('api/profile/delete-image/'+image_id)).done(function(id) {
+		showButtonLoad('delete', image_id, false);
+		$('#'+id).parent().parent().remove();
+	}).fail(function(e) {
+		console.log(e);
+	});
+}
+
 function before() {
+	uploadLoading(true);
+	var output = $('#output');
+
 	if (window.File && window.FileReader && window.FileList && window.Blob)
 	{
 		var elem = $('#photos');
 
 		if(!elem.val())
 		{
-			$("#output").html("Are you kidding me?");
+			output.html(messages.no_image);
+			uploadLoading(false);
 			return false
 		}
 		
@@ -20,64 +45,117 @@ function before() {
 			case 'image/png':
 				break;
 			default:
-				$("#output").html("<b>"+ftype+"</b> Unsupported file type!");
+				output.html(messages.image_wrong_type);
+				uploadLoading(false);
 				return false
 		}
 
 		// Allowed file size is less than 10 MB (10485760)
 		if(fsize > 10485760) {
-			$("#output").html("<b>"+bytesToSize(fsize) +"</b> Too big file! <br />File is too big, it should be less than 5 MB.");
+			output.html(messages.image_to_large);
+			uploadLoading(false);
 			return false
 		}
 				
-		$("#output").html("");  
+		output.html('');  
 	}
 	else
 	{
 		// Output error to older unsupported browsers that doesn't support HTML5 File API
-		$("#output").html("Please upgrade your browser, because your current browser lacks some new features we need!");
+		output.html(messages.none_supported_browser);
+		uploadLoading(false);
 		return false;
 	}
 }
 
 function success(data) {
-	console.log(data);
-}
+	$('#output').html(data.message);
 
-function progress(event, position, total, percent) {
-	console.log(percent);
-	progressBar(percent);
-}
+	var template = $('#image-template').html();
+	var rendered = Mustache.render(template, data.images);
+	$('.three.column.doubling.ui.grid').append(rendered);
 
-function bytesToSize(bytes) {
-	var sizes = ['Bytes', 'KB', 'MB', 'GB', 'TB'];
-	if (bytes == 0) return '0 Bytes';
-	var i = parseInt(Math.floor(Math.log(bytes) / Math.log(1024)));
-	return Math.round(bytes / Math.pow(1024, i), 2) + ' ' + sizes[i];
+	$('.ui.toggle.checkbox').checkbox();
+
+	uploadLoading(false);
 }
 
 function displayError(e) {
 	console.log(e);
 }
 
-function progressBar(percent) {
-	$('.ui.teal.progress').find('.bar').css('width', percent + '%');
+function uploadLoading(show) {
+	if(show)	
+		$('#upload_loading').removeClass('none');
+	else
+		$('#upload_loading').addClass('none');
+}
+
+function showButtonLoad(type, id, show) {
+	if(type == 'save') {
+		if(show)
+			$('#image_save_'+id).find('i').removeClass('edit').addClass('loading');
+		else
+			$('#image_save_'+id).find('i').removeClass('loading').addClass('edit');
+	} else if(type == 'delete') {
+		if(show)
+			$('#image_delete_'+id).find('i').removeClass('trash').addClass('loading');
+		else
+			$('#image_delete_'+id).find('i').removeClass('loading').addClass('trash');
+	}
 }
 
 $(document).on('ready', function() {
 	var options = { 
-		target: '#output',
 		beforeSubmit: before,
 		success: success,
-		uploadProgress: progress,
 		resetForm: true,
 		error: displayError
 	}; 
 
-	$('#uploadForm').submit(function() {
-		progressBar(0);
+	$('#upload_form').on('submit', function() {
 		$(this).ajaxSubmit(options);
 		return false;
+	});
+
+	$('body').on('click', '[id^="image_save"]', function() {
+		var image_id = $(this).parent().parent().prop('id');
+		
+		var input = help.getInput({ 
+			description: 'description_'+image_id,
+			is_profile: 'is_profile_'+image_id,
+			is_hidden: 'is_hidden_'+image_id 
+		}, 'name')
+
+		input.is_profile = $('[name="is_profile_'+image_id+'"]').is(':checked');
+		input.is_hidden = $('[name="is_hidden_'+image_id+'"]').is(':checked');
+
+		saveImage(image_id, input);
+	});
+
+	$('body').on('click', '[id^="image_delete"]', function() {
+		var image_id = $(this).parent().parent().prop('id');
+		deleteImage(image_id);
+	});
+
+	messages = {
+		no_image: $('#no_image_text').val(),
+		image_to_large: $('#image_to_large_text').val(),
+		image_wrong_type: $('#image_wrong_type_text').val(),
+		none_supported_browser: $('#none_supported_browser').val(),
+	};
+
+	$('.ui.toggle.checkbox').checkbox()
+
+	$('body').on('click', '.ui.toggle.checkbox', function() {
+		var current = $(this)[0];
+
+		if($(this).hasClass('profile')) {
+			$('.checkbox').each(function() {
+				if(current != $(this)[0] && $(this).hasClass('profile'))
+					$(this).checkbox('disable');
+			});
+		}
 	});
 });
 
@@ -93,9 +171,9 @@ $(document).on('ready', function() {
 			var $wrap = $('<div class="file-upload-wrapper">');
 			var $input = $('<input type="text" class="file-upload-input" />');
 			// Button that will be used in non-IE browsers
-			var $button = $('<button type="button" class="file-upload-button">Select a File</button>');
+			var $button = $('<button type="button" class="file-upload-button">'+$('#choose_file_text').val()+'</button>');
 			// Hack for IE
-			var $label = $('<label class="file-upload-button" for="'+ $file[0].id +'">Select a File</label>');
+			var $label = $('<label class="file-upload-button" for="'+ $file[0].id +'">'+$('#choose_file_text').val()+'</label>');
 
 			// Hide by shifting to the left so we, can still trigger events
 			$file.css({ position: 'absolute', left: '-9999px' });
