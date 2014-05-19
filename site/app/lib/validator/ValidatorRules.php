@@ -16,9 +16,9 @@ class ValidatorRules {
 
 	public static $accepted_rules = 'accepted';
 
-	public static $min_age = 'required|integer_between:18,100';
+	public static $minage = 'required|integer_between:18,100';
 
-	public static $max_age = 'required|integer_between:18,100';
+	public static $maxage = 'required|integer_between:18,100';
 
 	public static $gender_id = 'required|integer|exists:genders,id';
 
@@ -34,7 +34,7 @@ class ValidatorRules {
 
 	public static function makeUser()
 	{
-		$make_user_rules = [
+		return [
 			'state'=>self::$state_id,
 			'city'=>self::$city_id,
 			'gender'=>self::$gender_id,
@@ -45,29 +45,47 @@ class ValidatorRules {
 			'length'=>self::$length,
 			'accepted_rules'=>self::$accepted_rules
 		];
-
-		return $make_user_rules;
 	}
 
-	public static function newPassword()
+	public static function updateUser()
 	{
-		return ['email'=>self::$email_exist];
+		return [
+			'state'=>self::$state_id,
+			'city'=>self::$city_id,
+			'gender'=>self::$gender_id,
+			'birth_year'=>self::$birthYear,
+			'length'=>self::$length
+		];
 	}
 
 	public static function makeRelationship()
 	{
-		$relationship_rules = [
+		return [
 			'partner_gender'=>self::$gender_id,
 			'relationship_status'=>self::$relationship_status_id,
 			'relationship_search'=>self::$relationship_search_id
 		];
+	}
 
-		return $relationship_rules;
+	public static function updateRelationship()
+	{
+		return [
+			'partner_gender'=>self::$gender_id,
+			'relationship_status'=>self::$relationship_status_id,
+			'relationship_search'=>self::$relationship_search_id,
+			'minage'=>self::$minage,
+			'maxage'=>self::$maxage
+		];
 	}
 
 	public static function updateImage()
 	{
 		return ['description'=>self::$image_description];
+	}
+
+	public static function newPassword()
+	{
+		return ['email'=>self::$email_exist];
 	}
 
 }

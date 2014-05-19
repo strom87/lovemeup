@@ -4,20 +4,34 @@ use Auth;
 use Input;
 use database\User;
 use helpers\Basic;
+use helpers\DropDown;
 use image\ImageUpload;
 use image\ImageRemove;
-use image\ImageToSafeReturn;
+use factory\UserFactory;
 use factory\ImageFactory;
+use view\userprofile\ImagesUploadedModel;
 
 class ApiProfileController extends \BaseController {
 
+	protected $userFactory;
 	protected $imageUpload;
 	protected $imageFactory;
 
-	public function __construct(ImageFactory $factory, ImageUpload $image)
+	public function __construct(UserFactory $userFactory, ImageFactory $imageFactory, ImageUpload $imageUpload)
 	{
-		$this->imageUpload = $image;
-		$this->imageFactory = $factory;
+		$this->userFactory = $userFactory;
+		$this->imageUpload = $imageUpload;
+		$this->imageFactory = $imageFactory;
+	}
+
+	public function postEditProfile()
+	{
+		if ($this->userFactory->update(Auth::user()->id, Input::all()))
+		{
+			return ['pass'=>true];
+		}
+
+		return $this->userFactory->messages();
 	}
 
 	public function postImagesUpload()
@@ -36,9 +50,9 @@ class ApiProfileController extends \BaseController {
 			$this->imageFactory->make(Auth::user()->id, $name);
 		}
 
-		$safeReturn = new ImageToSafeReturn($this->imageFactory->images);
+		$model = new ImagesUploadedModel($this->imageFactory->images);
 
-		return ['message'=>trans('profile.images.success'), 'images'=>$safeReturn];
+		return ['message'=>trans('profile.images.success'), 'model'=>$model];
 	}
 
 	public function postEditImage($imageId)
@@ -60,6 +74,11 @@ class ApiProfileController extends \BaseController {
 		$image->delete();
 
 		return $imageId;
+	}
+
+	public function getCities($id)
+	{
+		return DropDown::cities($id);
 	}
 
 }

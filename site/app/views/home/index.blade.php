@@ -1,7 +1,7 @@
 @extends('layouts.site')
 
 @section('content')
-
-	hej
+	<h1>Senast inloggade</h1>
+	@include('home.partial.users')
 
 @stop

@@ -2,7 +2,17 @@
 
 return array(
 	'profile' => array(
-		'birth_year' => 'Födelse år',
+		'state'=> 'Län',
+		'city'=> 'Stad',
+		'birth_year'=> 'Födelse år',
+		'length'=> 'Längd (cm)',
+		'gender'=> 'Ditt kön',
+		'partner_gender'=> 'Söker kön',
+		'relationship_status'=> 'Relationsstatus',
+		'relationship_search'=> 'Söker relation',
+		'minage'=> 'Min ålder',
+		'maxage'=> 'Max ålder',
+		'description'=> 'Beskriv dig själv'
 	),
 	'images' => array(
 		'no_image'=> 'Ingen bild vald',

@@ -10,6 +10,23 @@ use database\RelationshipSearch;
 
 class DropDown {
 
+	public static function ages()
+	{
+		if (!Cache::has('ages_list'))
+		{
+			$ages = [];
+
+			foreach(Basic::getAgesRange() as $age)
+			{
+				$ages[$age] = $age;
+			}
+
+			Cache::put('ages_list', $ages);
+		}
+
+		return Cache::get('ages_list');
+	}
+
 	public static function years()
 	{
 		if (!Cache::has('years_list'))
@@ -101,9 +118,9 @@ class DropDown {
 				$state_id = 1;
 			}
 
-			$states = City::where('state_id', $state_id)->orderBy('name')->lists('name', 'id');
+			$cities = City::where('state_id', $state_id)->orderBy('name')->lists('name', 'id');
 
-			Cache::put('cities_list', $states);
+			Cache::put('cities_list', $cities);
 		}
 
 		return Cache::get('cities_list');

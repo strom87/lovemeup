@@ -72,7 +72,7 @@ function success(data) {
 	$('#output').html(data.message);
 
 	var template = $('#image-template').html();
-	var rendered = Mustache.render(template, data.images);
+	var rendered = Mustache.render(template, data.model);
 	$('.three.column.doubling.ui.grid').append(rendered);
 
 	$('.ui.toggle.checkbox').checkbox();

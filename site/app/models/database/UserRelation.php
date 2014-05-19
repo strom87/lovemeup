@@ -6,7 +6,7 @@ class UserRelation extends Eloquent {
 
 	protected $table = 'user_relations';
 
-	protected $fillable = array('gender_id', 'minage', 'maxage');
+	protected $fillable = array('gender_id', 'relationship_search_id', 'relationship_status_id', 'minage', 'maxage');
 	
 	public function user()
 	{

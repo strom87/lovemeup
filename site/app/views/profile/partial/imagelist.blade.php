@@ -25,7 +25,7 @@
 						{{ Form::textarea('description_'.$image->id, $image->description) }}
 					</div>
 					<div class="inline field">
-						<a id="image_save_{{ $image->id }}" class="ui green button">
+						<a id="image_save_{{ $image->id }}" class="ui teal button">
 							<i class="icon edit"></i>
 							{{ trans('button.save') }}
 						</a>
@@ -67,7 +67,7 @@
 						<textarea name="description_@{{id}}"></textarea>
 					</div>
 					<div class="inline field">
-						<a id="image_save_@{{id}}" class="ui green button">
+						<a id="image_save_@{{id}}" class="ui teal button">
 							<i class="icon edit"></i>
 							{{ trans('button.save') }}
 						</a>

@@ -5,10 +5,20 @@ use database\User;
 
 class Basic {
 
+	public static function calcAge($birthYear)
+	{
+		return date('Y') - $birthYear; 
+	}
+
 	public static function getYearsRange()
 	{
 		$year = date('Y') - 18;
 		return range($year, 1900, -1);
+	}
+
+	public static function getAgesRange()
+	{
+		return range(18, 100, 1);
 	}
 
 	public static function getLengthRange()
@@ -21,9 +31,14 @@ class Basic {
 		return public_path().DIRECTORY_SEPARATOR.'users'.DIRECTORY_SEPARATOR.strtolower(Auth::user()->name).DIRECTORY_SEPARATOR.'images';
 	}
 
-	public static function getUserImagesPathHtml($imageName)
+	public static function getUserImagesPathHtml($username, $imageName)
 	{
-		$path = 'users/'.strtolower(Auth::user()->name).'/images';
+		if (is_null($username))
+		{
+			$username = Auth::user()->name;
+		}
+
+		$path = 'users/'.strtolower($username).'/images';
 		return (object) [
 			'large'=>asset($path.'/large/'.$imageName),
 			'medium'=>asset($path.'/medium/'.$imageName),
@@ -44,7 +59,7 @@ class Basic {
 			];
 		}
 		
-		return self::getUserImagesPathHtml($filename);
+		return self::getUserImagesPathHtml($user->name, $filename);
 	}
 
 }

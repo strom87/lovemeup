@@ -44,7 +44,7 @@ class UserFactory extends ValidatorMod {
 		$uRelation = new UserRelation([
 			'gender_id'=>$attributes['partner_gender'],
 			'relationship_status_id'=>$attributes['relationship_status'],
-			'relationship_serch_id'=>$attributes['relationship_search'],
+			'relationship_search_id'=>$attributes['relationship_search'],
 			'minage'=>18,
 			'maxage'=>100
 		]);
@@ -73,6 +73,37 @@ class UserFactory extends ValidatorMod {
 		$user->userEmployment()->save($uEmployment);
 		$user->userAppearance()->save($uAppearance);
 		$user->userRelation()->save($uRelation);
+
+		$this->user = $user;
+
+		return true;
+	}
+
+	public function update($pid, $attributes)
+	{
+		$this->validate($attributes, ValidatorRules::updateUser(), true);
+		$this->validate($attributes, ValidatorRules::updateRelationship(), true);
+
+		if ($this->failed()) return false;
+
+		$user = User::find($pid);
+
+		$user->update([
+			'state_id'=>$attributes['state'],
+			'city_id'=>$attributes['city'],
+			'gender_id'=>$attributes['gender'],
+			'birth_year'=>$attributes['birth_year'],
+			'length'=>$attributes['length'],
+			'description'=>$attributes['description']
+		]);
+
+		$user->userRelation()->update([
+			'gender_id'=>$attributes['partner_gender'],
+			'relationship_status_id'=>$attributes['relationship_status'],
+			'relationship_search_id'=>$attributes['relationship_search'],
+			'minage'=>$attributes['minage'],
+			'maxage'=>$attributes['maxage']
+		]);
 
 		$this->user = $user;
 

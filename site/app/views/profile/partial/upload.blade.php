@@ -7,7 +7,7 @@
 
 	<input name="photos[]" id="photos" type="file" multiple />
 	
-	<input type="submit" id="upload_submit" class="ui teal button" value="{{ trans('button.upload') }}" />
+	<input type="submit" id="upload_submit" class="ui purple button" value="{{ trans('button.upload') }}" />
 	<span id="upload_loading" class="none">
 		<i class="icon large loading"></i>
 	</span>

@@ -1,8 +1,8 @@
-<?php namespace image;
+<?php namespace view\userprofile;
 
 use helpers\Basic;
 
-class ImageToSafeReturn {
+class ImagesUploadedModel {
 
 	public $images;
 
@@ -14,7 +14,7 @@ class ImageToSafeReturn {
 		{
 			$this->images[] = (object) [
 				'id'=>$image->id,
-				'path'=>Basic::getUserImagesPathHtml($image->name),
+				'path'=>Basic::getUserImagesPathHtml(null, $image->name),
 				'is_profile'=>$image->is_profile,
 				'is_hidden'=>$image->is_hidden,
 				'description'=>$image->description

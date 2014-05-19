@@ -38,7 +38,7 @@ class ImageFactory extends ValidatorMod {
 
 		$images = User::find($pid)->images();
 
-		if (isset($attributes['is_profile']))
+		if ($attributes['is_profile'] == 'true')
 		{
 			$images->update(['is_profile'=>false]);
 		}
