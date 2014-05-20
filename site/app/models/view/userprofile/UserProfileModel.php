@@ -5,7 +5,7 @@ use database\User;
 use helpers\Basic;
 use helpers\DropDown;
 
-class ProfileModel {
+class UserProfileModel {
 
 	public $user;
 	public $ages;

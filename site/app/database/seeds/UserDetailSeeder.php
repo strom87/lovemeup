@@ -21,6 +21,24 @@ class UserDetailSeeder extends Seeder {
 		$user->tobacco_id = 1;
 
 		$user->save();
+
+		$user = new UserDetail();
+		$user->user_id = 2;
+		$user->children_id = 1;
+		$user->pet_id = 1;
+		$user->alcohol_id = 1;
+		$user->tobacco_id = 1;
+
+		$user->save();
+
+		$user = new UserDetail();
+		$user->user_id = 3;
+		$user->children_id = 1;
+		$user->pet_id = 1;
+		$user->alcohol_id = 1;
+		$user->tobacco_id = 1;
+
+		$user->save();
 	}
 
 }

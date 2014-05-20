@@ -1,29 +1,37 @@
 <?php
 
 use database\User;
-use view\userprofile\ImagesModel;
-use view\userprofile\ProfileModel;
+use helpers\Cache;
+use view\profile\ProfileModel;
 
 class ProfileController extends BaseController {
 
-	protected $imagesModel;
-	protected $profileModel;
+	public function getUser($username)
+	{	
+		$id = null;
 
-	public function __construct(ProfileModel $profile, ImagesModel $image)
-	{
-		$this->imagesModel = $image;
-		$this->profileModel = $profile;
-	}
+		if (Cache::has($username))
+		{
+			$id = Cache::get($username);
+		}
+		else
+		{
+			$id = User::where('name', $username)->pluck('id');
 
-	public function getIndex()
-	{
-		return View::make('profile.index')->with('model', $this->profileModel);
-	}
+			if (empty($id))
+			{
+				return Redirect::to('/');
+			}
+			else
+			{
+				Cache::forever($username, $id);
+			}
+		}
 
-	public function getImages()
-	{
-		$images = $this->imagesModel->images;
-		return View::make('profile.images')->with('images', $this->imagesModel->images);
+
+		$model = new ProfileModel($id);
+
+		return View::make('profile.index', compact('model'));
 	}
 
 }

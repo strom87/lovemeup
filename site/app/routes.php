@@ -22,7 +22,7 @@ Route::group(['prefix'=>'api', 'before'=>'ajax'], function()
 
 	Route::group(['before'=>'auth'], function()
 	{
-		Route::controller('profile', 'api\ApiProfileController');
+		Route::controller('user-profile', 'api\ApiUserProfileController');
 	});
 });
 
@@ -30,6 +30,9 @@ Route::group(['before'=>'auth'], function()
 {
 	Route::controller('home', 'HomeController');
 	Route::controller('profile', 'ProfileController');
+	Route::controller('user-profile', 'UserProfileController');
+	Route::controller('search', 'SearchController');
+	Route::controller('signout', 'SignOutController');
 });
 
 Route::group(['before'=>'guest'], function()

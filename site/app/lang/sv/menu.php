@@ -1,12 +1,15 @@
 <?php
 
 return array(
+	'header' => 'LoveMeUp',
+	'search' => 'Sök...',
 	'site' => array(
-		'profile'	=> 'Profil',
-		'messages'	=> 'Medelanden'
+		'userprofile'	=> 'Din profil',
+		'messages'		=> 'Meddelanden',
+		'signout'		=> 'Logga ut',
 	),
 	'profile' => array(
-		'profile'	=> 'Profil',
+		'profile'	=> 'Din profil',
 		'images'	=> 'Bilder'
-	)
+	),
 );

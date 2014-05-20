@@ -62,4 +62,21 @@ class Basic {
 		return self::getUserImagesPathHtml($user->name, $filename);
 	}
 
+	public static function getUserImagesExceptProfile($user)
+	{
+		$images = [];
+		$path = 'users/'.strtolower($user->name).'/images';
+
+		foreach($user->images as $image)
+		{
+			$images[] = (object) [
+				'large'=>asset($path.'/large/'.$image->name),
+				'medium'=>asset($path.'/medium/'.$image->name),
+				'small'=>asset($path.'/small/'.$image->name),
+			];
+		}
+
+		return $images;
+	}
+
 }

@@ -8,10 +8,12 @@ function loginUser() {
 
 	$.post('api/auth/login', input).done(function(data) {
 		if(data.pass) {
+			loginError(null, false);
 			window.location.reload();
+		} else {
+			loginError(data, true);
+			loader('login', false);
 		}
-		loginError(data);
-		loader('login', false);
 	}).fail(function(e) {
 		loader('login', false);
 		console.log(e);
@@ -102,8 +104,11 @@ function newPasswordMessage(show) {
 	}
 }
 
-function loginError(message) {
-	$('#login_error').slideDown('fast').find('span').html(message);
+function loginError(message, show) {
+	if(show)
+		$('#login_error').slideDown('fast').find('span').html(message);
+	else
+		$('#login_error').slideUp('fast');
 }
 
 function registerErrors(data) {

@@ -11,7 +11,7 @@ use factory\UserFactory;
 use factory\ImageFactory;
 use view\userprofile\ImagesUploadedModel;
 
-class ApiProfileController extends \BaseController {
+class ApiUserProfileController extends \BaseController {
 
 	protected $userFactory;
 	protected $imageUpload;

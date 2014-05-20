@@ -1,4 +1,11 @@
-$(document).on('ready', function() {
+function searchByName(query) {
+	query = query.replace(/[^A-Za-z0-9]/g, '');
+	if(query.length > 0) {
+		window.location.href = help.url('search/by-name/'+query);
+	}
+}
+
+function addMagnificPopup() {
 	$('.image-popup-no-margins').magnificPopup({
 		type: 'image',
 		closeOnContentClick: true,
@@ -13,5 +20,18 @@ $(document).on('ready', function() {
 			duration: 300 // don't foget to change the duration also in CSS
 		}
 	});
+}
 
-})
+$(document).on('ready', function() {
+	$('#menu_search').on('keyup', function(e) {
+		if(help.isEnterKey(e)) {
+			searchByName(this.value);
+		}
+	});
+
+	$('#menu_search_icon').on('click', function() {
+		searchByName($('#menu_search').val());
+	});
+	
+	addMagnificPopup();
+});

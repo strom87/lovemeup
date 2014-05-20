@@ -2,6 +2,6 @@
 
 @section('content')
 
-	@include('profile.partial.user')
+	@include('search.partial.results')
 
 @stop

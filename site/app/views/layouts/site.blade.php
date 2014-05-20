@@ -17,17 +17,27 @@
 	<div class="ui inverted main menu">
 		<a id="home" class="item" href="{{ url('/') }}">
 			<i class="home icon"></i>
-			LoveMeUp
+			{{ trans('menu.header') }}
 		</a>
 		<div class="right menu">
-			<a class="item" href="{{ url('profile') }}">
+			<a class="item" href="{{ url('user-profile') }}">
 				<i class="user icon"></i>
-				{{ trans('menu.site.profile') }}
+				{{ trans('menu.site.userprofile') }}
 			</a>
 			<a class="item">
 				<i class="mail icon"></i>
 				{{ trans('menu.site.messages') }}
 			</a>
+			<a class="item" href="{{ url('signout') }}">
+				<i class="mail icon"></i>
+				{{ trans('menu.site.signout') }}
+			</a>
+			<div class="item">
+				<div class="ui icon input">
+					<input type="text" id="menu_search" placeholder="{{ trans('menu.search') }}">
+					<i id="menu_search_icon" class="pointer search icon"></i>
+				</div>
+			</div>
 		</div>
 	</div>
 	<div class="content-container">

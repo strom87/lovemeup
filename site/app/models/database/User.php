@@ -90,6 +90,11 @@ class User extends Eloquent implements UserInterface, RemindableInterface {
 		$this->attributes['password'] = Hash::make($value);
 	}
 
+	public function scopeActive($query)
+	{
+		return $query->where('is_activated', true)->where('is_paused', false);
+	}
+
 	public function userAppearance()
 	{
 		return $this->hasOne('database\UserAppearance', 'user_id', 'id');

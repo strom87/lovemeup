@@ -20,6 +20,22 @@ class UserAppearanceSeeder extends Seeder {
 		$user->physique_id = 1;
 
 		$user->save();
+
+		$user = new UserAppearance();
+		$user->user_id = 2;
+		$user->eye_color_id = 1;
+		$user->hair_color_id = 1;
+		$user->physique_id = 1;
+
+		$user->save();
+
+		$user = new UserAppearance();
+		$user->user_id = 3;
+		$user->eye_color_id = 1;
+		$user->hair_color_id = 1;
+		$user->physique_id = 1;
+
+		$user->save();
 	}
 
 }

@@ -57,6 +57,10 @@ textarea {
   display: none;
 }
 
+.pointer {
+  cursor: pointer;
+}
+
 /* images */
 
 .profile-image-list {
@@ -71,6 +75,33 @@ textarea {
   max-height: 210px;
   margin-left: auto;
   margin-right: auto;
+}
+
+/* search */
+
+.search-image {
+  max-width: 200px;
+  height: 140px;
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: 10px;
+}
+
+.search-image img {
+  height: 140px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.search-link {
+  margin-bottom: 10px;
+}
+
+.search-link a {
+  color: #333;
+  font-size: 18px;
+  font-weight: bold;
+  text-decoration: none;
 }
 
 /* File upload */

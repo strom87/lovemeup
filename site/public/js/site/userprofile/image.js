@@ -2,7 +2,7 @@ var messages = {};
 
 function saveImage(image_id, input) {
 	showButtonLoad('save', image_id, true);
-	$.post(help.url('api/profile/edit-image/'+image_id), input).done(function(data) {
+	$.post(help.url('api/user-profile/edit-image/'+image_id), input).done(function(data) {
 		showButtonLoad('save', data.id, false);
 	}).fail(function(e) {
 		console.log(e);
@@ -11,7 +11,7 @@ function saveImage(image_id, input) {
 
 function deleteImage(image_id) {
 	showButtonLoad('delete', image_id, true);
-	$.post(help.url('api/profile/delete-image/'+image_id)).done(function(id) {
+	$.post(help.url('api/user-profile/delete-image/'+image_id)).done(function(id) {
 		showButtonLoad('delete', image_id, false);
 		$('#'+id).parent().parent().remove();
 	}).fail(function(e) {

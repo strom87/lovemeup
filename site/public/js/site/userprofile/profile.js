@@ -1,6 +1,5 @@
 function saveProfile(input) {
-	console.log(input);
-	$.post(help.url('api/profile/edit-profile'), input).done(function(data) {
+	$.post(help.url('api/user-profile/edit-profile'), input).done(function(data) {
 		loading(false);
 	}).fail(function(e) {
 		console.log(e);
@@ -11,7 +10,7 @@ function saveProfile(input) {
 function getCities(id) {
 	$('.ui.dropdown.cities').dropdown('destroy');
 
-	$.get(help.url('api/profile/cities/'+id)).done(function(data) {
+	$.get(help.url('api/user-profile/cities/'+id)).done(function(data) {
 		var first = true;
 		var elem = $('#cities');
 		var template = '<div class="item" data-value="{id}">{name}</div>';

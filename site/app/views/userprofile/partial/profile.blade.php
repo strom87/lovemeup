@@ -8,7 +8,7 @@
 <div class="three column doubling ui grid">
 	<div class="column">
 		<div class="field">
-			<label>{{ trans('profile.profile.state') }}</label>
+			<label>{{ trans('userprofile.profile.state') }}</label>
 			<div class="ui fluid selection dropdown states">
 				<input type="hidden" name="state" value="{{ $model->user->state_id }}">
 				<div class="default text"></div>
@@ -27,7 +27,7 @@
 	</div>
 	<div class="column">
 		<div class="field">
-			<label>{{ trans('profile.profile.city') }}</label>
+			<label>{{ trans('userprofile.profile.city') }}</label>
 			<div id="cities" class="ui fluid selection dropdown cities">
 				<input type="hidden" name="city" value="{{ $model->user->city_id }}">
 				<div class="default text"></div>
@@ -46,7 +46,7 @@
 	</div>
 	<div class="column">
 		<div class="field">
-			<label>{{ trans('profile.profile.birth_year') }}</label>
+			<label>{{ trans('userprofile.profile.birth_year') }}</label>
 			<div class="ui fluid selection dropdown">
 				<input type="hidden" name="birth_year" value="{{ $model->user->birth_year }}">
 				<div class="default text">{{ $model->user->birth_year }}</div>
@@ -65,7 +65,7 @@
 	</div>
 	<div class="column">
 		<div class="field">
-			<label>{{ trans('profile.profile.length') }}</label>
+			<label>{{ trans('userprofile.profile.length') }}</label>
 			<div class="ui fluid selection dropdown">
 				<input type="hidden" name="length" value="{{ $model->user->length }}">
 				<div class="default text">{{ $model->user->length }}</div>
@@ -84,7 +84,7 @@
 	</div>
 	<div class="column">
 		<div class="field">
-			<label>{{ trans('profile.profile.gender') }}</label>
+			<label>{{ trans('userprofile.profile.gender') }}</label>
 			<div class="ui fluid selection dropdown">
 				<input type="hidden" name="gender" value="{{ $model->user->gender_id }}">
 				<div class="default text"></div>
@@ -103,7 +103,7 @@
 	</div>
 	<div class="column">
 		<div class="field">
-			<label>{{ trans('profile.profile.partner_gender') }}</label>
+			<label>{{ trans('userprofile.profile.partner_gender') }}</label>
 			<div class="ui fluid selection dropdown">
 				<input type="hidden" name="partner_gender" value="{{ $model->user->userRelation->gender_id }}">
 				<div class="default text"></div>
@@ -122,7 +122,7 @@
 	</div>
 	<div class="column">
 		<div class="field">
-			<label>{{ trans('profile.profile.relationship_status') }}</label>
+			<label>{{ trans('userprofile.profile.relationship_status') }}</label>
 			<div class="ui fluid selection dropdown">
 				<input type="hidden" name="relationship_status" value="{{ $model->user->userRelation->relationship_status_id }}">
 				<div class="default text"></div>
@@ -141,7 +141,7 @@
 	</div>
 	<div class="column">
 		<div class="field">
-			<label>{{ trans('profile.profile.relationship_search') }}</label>
+			<label>{{ trans('userprofile.profile.relationship_search') }}</label>
 			<div class="ui fluid selection dropdown">
 				<input type="hidden" name="relationship_search" value="{{ $model->user->userRelation->relationship_search_id }}">
 				<div class="default text"></div>
@@ -160,7 +160,7 @@
 	</div>
 	<div class="column">
 		<div class="field">
-			<label>{{ trans('profile.profile.minage') }}</label>
+			<label>{{ trans('userprofile.profile.minage') }}</label>
 			<div id="minage_id" class="ui fluid selection dropdown minage">
 				<input type="hidden" name="minage" value="{{ $model->user->userRelation->minage }}">
 				<div class="default text"></div>
@@ -179,7 +179,7 @@
 	</div>
 	<div class="column">
 		<div class="field">
-			<label>{{ trans('profile.profile.maxage') }}</label>
+			<label>{{ trans('userprofile.profile.maxage') }}</label>
 			<div id="maxage_id" class="ui fluid selection dropdown maxage">
 				<input type="hidden" name="maxage" value="{{ $model->user->userRelation->maxage }}">
 				<div class="default text"></div>
@@ -201,7 +201,7 @@
 	<div class="column">
 		<div class="field">
 			<div class="ui form">
-				{{ Form::label('description', trans('profile.profile.description')) }}
+				{{ Form::label('description', trans('userprofile.profile.description')) }}
 				{{ Form::textarea('description', $model->user->description, ['id'=>'description']) }}
 			</div>
 		</div>

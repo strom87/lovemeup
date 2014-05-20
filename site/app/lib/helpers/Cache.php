@@ -6,18 +6,23 @@ class Cache {
 
 	private static $time = 60;
 
-	public static function has($name)
+	public static function has($key)
 	{
-		return C::has($name);
+		return C::has($key);
 	}
 
-	public static function put($name, $value)
+	public static function put($key, $value)
 	{
-		C::put($name, $value, self::$time);
+		C::put($key, $value, self::$time);
 	}
 
-	public static function get($name)
+	public static function forever($key, $value)
 	{
-		return C::get($name);
+		C::forever($key, $value);
+	}
+
+	public static function get($key)
+	{
+		return C::get($key);
 	}
 }

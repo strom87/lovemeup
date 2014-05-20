@@ -20,6 +20,22 @@ class UserEmploymentSeeder extends Seeder {
 		$user->work_status_id = 1;
 
 		$user->save();
+
+		$user = new UserEmployment();
+		$user->user_id = 2;
+		$user->education_id = 1;
+		$user->work_id = 1;
+		$user->work_status_id = 1;
+
+		$user->save();
+
+		$user = new UserEmployment();
+		$user->user_id = 3;
+		$user->education_id = 1;
+		$user->work_id = 1;
+		$user->work_status_id = 1;
+
+		$user->save();
 	}
 
 }
