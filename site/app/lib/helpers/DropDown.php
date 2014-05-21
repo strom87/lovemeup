@@ -7,6 +7,16 @@ use database\State;
 use database\City;
 use database\RelationshipStatus;
 use database\RelationshipSearch;
+use database\Alcohol;
+use database\Children;
+use database\Education;
+use database\EyeColor;
+use database\HairColor;
+use database\Pet;
+use database\Physique;
+use database\Tobacco;
+use database\Work;
+use database\WorkStatus;
 
 class DropDown {
 
@@ -125,4 +135,125 @@ class DropDown {
 
 		return Cache::get('cities_list');
 	}
+
+	public static function alcohols()
+	{
+		if (!Cache::has('alcohols_list'))
+		{
+			$alcohols = Alcohol::all()->lists('name', 'id');
+			
+			Cache::put('alcohols_list', $alcohols);
+		}
+
+		return Cache::get('alcohols_list');
+	}
+
+	public static function childrens()
+	{
+		if (!Cache::has('childrens_list'))
+		{
+			$childrens = Children::all()->lists('name', 'id');
+			
+			Cache::put('childrens_list', $childrens);
+		}
+
+		return Cache::get('childrens_list');
+	}
+
+	public static function educations()
+	{
+		if (!Cache::has('educations_list'))
+		{
+			$educations = Education::all()->lists('name', 'id');
+			
+			Cache::put('educations_list', $educations);
+		}
+
+		return Cache::get('educations_list');
+	}
+
+	public static function eyeColors()
+	{
+		if (!Cache::has('eye_colors_list'))
+		{
+			$eyeColors = EyeColor::all()->lists('name', 'id');
+			
+			Cache::put('eye_colors_list', $eyeColors);
+		}
+
+		return Cache::get('eye_colors_list');
+	}
+
+	public static function hairColors()
+	{
+		if (!Cache::has('hair_colors_list'))
+		{
+			$hairColors = HairColor::all()->lists('name', 'id');
+			
+			Cache::put('hair_colors_list', $hairColors);
+		}
+
+		return Cache::get('hair_colors_list');
+	}
+
+	public static function pets()
+	{
+		if (!Cache::has('pets_list'))
+		{
+			$pets = Pet::all()->lists('name', 'id');
+			
+			Cache::put('pets_list', $pets);
+		}
+
+		return Cache::get('pets_list');
+	}
+
+	public static function physiques()
+	{
+		if (!Cache::has('physiques_list'))
+		{
+			$physiques = Physique::all()->lists('name', 'id');
+			
+			Cache::put('physiques_list', $physiques);
+		}
+
+		return Cache::get('physiques_list');
+	}
+
+	public static function tobaccos()
+	{
+		if (!Cache::has('tobaccos_list'))
+		{
+			$tobaccos = Tobacco::all()->lists('name', 'id');
+			
+			Cache::put('tobaccos_list', $tobaccos);
+		}
+
+		return Cache::get('tobaccos_list');
+	}
+
+	public static function works()
+	{
+		if (!Cache::has('works_list'))
+		{
+			$works = Work::all()->lists('name', 'id');
+			
+			Cache::put('works_list', $works);
+		}
+
+		return Cache::get('works_list');
+	}
+
+	public static function workStatuses()
+	{
+		if (!Cache::has('work_statuses_list'))
+		{
+			$workStatuses = WorkStatus::all()->lists('name', 'id');
+			
+			Cache::put('work_statuses_list', $workStatuses);
+		}
+
+		return Cache::get('work_statuses_list');
+	}
+
 }

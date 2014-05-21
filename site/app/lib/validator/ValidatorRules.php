@@ -30,6 +30,26 @@ class ValidatorRules {
 
 	public static $city_id = 'required|integer|exists:cities,id';
 
+	public static $eye_color_id = 'required|integer|exists:eye_colors,id';
+
+	public static $hair_color_id = 'required|integer|exists:hair_colors,id';
+
+	public static $physique_id = 'required|integer|exists:physique,id';
+
+	public static $children_id = 'required|integer|exists:childrens,id';
+
+	public static $pet_id = 'required|integer|exists:pets,id';
+
+	public static $alcohol_id = 'required|integer|exists:alcohols,id';
+
+	public static $tobacco_id = 'required|integer|exists:tobacco,id';
+
+	public static $education_id = 'required|integer|exists:educations,id';
+
+	public static $work_status_id = 'required|integer|exists:work_statuses,id';
+
+	public static $work_id = 'required|integer|exists:works,id';
+
 	public static $image_description = 'max:255';
 
 	public static function makeUser()
@@ -75,6 +95,34 @@ class ValidatorRules {
 			'relationship_search'=>self::$relationship_search_id,
 			'minage'=>self::$minage,
 			'maxage'=>self::$maxage
+		];
+	}
+
+	public static function updateAppearance()
+	{
+		return [
+			'eye_color'=>self::$eye_color_id,
+			'hair_color'=>self::$hair_color_id,
+			'physique'=>self::$physique_id
+		];
+	}
+
+	public static function updateDetail()
+	{
+		return [
+			'children'=>self::$children_id,
+			'pet'=>self::$pet_id,
+			'alcohol'=>self::$alcohol_id,
+			'tobacco'=>self::$tobacco_id
+		];
+	}
+
+	public static function updateEmployment()
+	{
+		return [
+			'education'=>self::$education_id,
+			'work_status'=>self::$work_status_id,
+			'work'=>self::$work_id
 		];
 	}
 

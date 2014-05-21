@@ -3,7 +3,7 @@
 	<div class="column">
 		<div class="ui segment">
 			<div class="search-link">
-				<a href="">{{{ $user->name }}}</a>
+				<a href="{{ url('profile/user/'.$user->name) }}">{{{ $user->name }}}</a>
 			</div>
 			<div class="search-image">
 				<a class="image-popup-no-margins" href="{{ $user->image->large }}">

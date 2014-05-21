@@ -28,16 +28,16 @@
 				<i class="mail icon"></i>
 				{{ trans('menu.site.messages') }}
 			</a>
-			<a class="item" href="{{ url('signout') }}">
-				<i class="mail icon"></i>
-				{{ trans('menu.site.signout') }}
-			</a>
 			<div class="item">
 				<div class="ui icon input">
 					<input type="text" id="menu_search" placeholder="{{ trans('menu.search') }}">
-					<i id="menu_search_icon" class="pointer search icon"></i>
+					<i id="menu_search_icon" class="pointer search icon" style="cursor: pointer"></i>
 				</div>
 			</div>
+			<a class="item" href="{{ url('signout') }}">
+				<i class="sign out icon"></i>
+				{{ trans('menu.site.signout') }}
+			</a>
 		</div>
 	</div>
 	<div class="content-container">
@@ -47,6 +47,7 @@
 	</div>
 
 	{{ HTML::script('js/jquery-2.1.1.min.js') }}
+	{{ HTML::script('js/jquery.address.js') }}
 	{{ HTML::script('js/semantic.min.js') }}
 	{{ HTML::script('js/jquery.magnific-popup.min.js') }}
 	{{ HTML::script('js/mustache.js') }}

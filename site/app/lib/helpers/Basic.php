@@ -67,9 +67,10 @@ class Basic {
 		$images = [];
 		$path = 'users/'.strtolower($user->name).'/images';
 
-		foreach($user->images as $image)
+		foreach($user->images()->where('is_profile', '!=', true)->get() as $image)
 		{
 			$images[] = (object) [
+				'description'=>$image->description,
 				'large'=>asset($path.'/large/'.$image->name),
 				'medium'=>asset($path.'/medium/'.$image->name),
 				'small'=>asset($path.'/small/'.$image->name),

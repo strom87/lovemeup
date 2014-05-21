@@ -9,6 +9,7 @@ use image\ImageUpload;
 use image\ImageRemove;
 use factory\UserFactory;
 use factory\ImageFactory;
+use factory\UserDetailFactory;
 use view\userprofile\ImagesUploadedModel;
 
 class ApiUserProfileController extends \BaseController {
@@ -16,12 +17,14 @@ class ApiUserProfileController extends \BaseController {
 	protected $userFactory;
 	protected $imageUpload;
 	protected $imageFactory;
+	protected $userDetailFactory;
 
-	public function __construct(UserFactory $userFactory, ImageFactory $imageFactory, ImageUpload $imageUpload)
+	public function __construct(UserFactory $userFactory, UserDetailFactory $userDetailFactory, ImageFactory $imageFactory, ImageUpload $imageUpload)
 	{
 		$this->userFactory = $userFactory;
 		$this->imageUpload = $imageUpload;
 		$this->imageFactory = $imageFactory;
+		$this->userDetailFactory = $userDetailFactory;
 	}
 
 	public function postEditProfile()
@@ -32,6 +35,16 @@ class ApiUserProfileController extends \BaseController {
 		}
 
 		return $this->userFactory->messages();
+	}
+
+	public function postEditDetails()
+	{
+		if ($this->userDetailFactory->update(Auth::user()->id, Input::all()))
+		{
+			return ['pass'=>true];
+		}
+		
+		return $this->userDetailFactory->messages();
 	}
 
 	public function postImagesUpload()

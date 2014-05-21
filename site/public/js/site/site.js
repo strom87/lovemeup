@@ -33,5 +33,9 @@ $(document).on('ready', function() {
 		searchByName($('#menu_search').val());
 	});
 	
+	$('.ui.tabular.menu .item').tab();
+
+	//$('.ui.top.attached.tabular.menu').tab();
+	
 	addMagnificPopup();
 });

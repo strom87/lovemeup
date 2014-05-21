@@ -1,11 +1,3 @@
-<h3 class="ui header">{{ $model->name }}</h3>
-<div>
-	<a class="image-popup-no-margins" href="{{ $model->profileImage->large }}">
-		<img class="rounded ui image" src="{{ $model->profileImage->small }}" />
-	</a>
-</div>
-
-<div class="ui segment">
 	<div class="five column doubling ui grid">
 		<div class="column">
 			<div class="ui list">
@@ -104,13 +96,3 @@
 			</div>
 		</div>
 	</div>
-	<div class="ui divider"></div>
-	<div class="one column doubling ui grid">
-		<div class="column">
-			<h4 class="ui header">Beskrivning</h4>
-			@foreach($model->description as $text)
-					{{{ $text }}}<br />
-			@endforeach
-		</div>
-	</div>
-</div>

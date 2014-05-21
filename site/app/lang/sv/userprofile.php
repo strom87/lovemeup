@@ -14,6 +14,21 @@ return array(
 		'maxage'=> 'Max ålder',
 		'description'=> 'Beskriv dig själv'
 	),
+	'details' => array(
+		'header_1'=> 'Utseende',
+		'header_2'=> 'Sysselsättning',
+		'header_3'=> 'Allmänt',
+		'eye_color'=> 'Ögonfärg',
+		'hair_color'=> 'Hårfärg',
+		'physique'=> 'Kroppstyp',
+		'education'=> 'Utbildning',
+		'work'=> 'Arbetar inom',
+		'work_status'=> 'Arbetssituation',
+		'children'=> 'Barn',
+		'pet'=> 'Djur',
+		'alcohol'=> 'Dryckes vanor',
+		'tobacco'=> 'Tobaks vanor',
+	),
 	'images' => array(
 		'no_image'=> 'Ingen bild vald',
 		'image_to_large'=> 'Bilden får inte vara större än 10MB',

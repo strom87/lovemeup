@@ -8,8 +8,9 @@ return array(
 		'messages'		=> 'Meddelanden',
 		'signout'		=> 'Logga ut',
 	),
-	'profile' => array(
+	'userprofile' => array(
 		'profile'	=> 'Din profil',
-		'images'	=> 'Bilder'
+		'images'	=> 'Bilder',
+		'details'	=> 'Detaljer',
 	),
 );
