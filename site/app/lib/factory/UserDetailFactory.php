@@ -6,6 +6,11 @@ use validator\ValidatorRules;
 
 class UserDetailFactory extends ValidatorMod {
 
+	public function __construct()
+	{
+		parent::__construct();
+	}
+
 	public function update($pid, $attributes)
 	{
 		$this->validate($attributes, ValidatorRules::updateDetail(), true);
