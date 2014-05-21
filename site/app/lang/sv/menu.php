@@ -6,6 +6,7 @@ return array(
 	'site' => array(
 		'userprofile'	=> 'Din profil',
 		'messages'		=> 'Meddelanden',
+		'search'		=> 'Sök',
 		'signout'		=> 'Logga ut',
 	),
 	'userprofile' => array(

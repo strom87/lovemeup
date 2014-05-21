@@ -2,6 +2,12 @@
 
 @section('content')
 
-	@include('search.partial.results')
+	@include('search.partial.basic')
+
+@stop
+
+@section('script')
+	
+	{{ HTML::script('js/site/search/search.js') }}
 
 @stop

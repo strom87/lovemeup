@@ -28,6 +28,10 @@
 				<i class="mail icon"></i>
 				{{ trans('menu.site.messages') }}
 			</a>
+			<a class="item" href="{{ url('search') }}">
+				<i class="filter icon"></i>
+				{{ trans('menu.site.search') }}
+			</a>
 			<div class="item">
 				<div class="ui icon input">
 					<input type="text" id="menu_search" placeholder="{{ trans('menu.search') }}">
