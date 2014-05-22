@@ -9,14 +9,14 @@ class SearchController extends BaseController {
 
 	public function __construct(SearchModel $searchModel)
 	{
-		if (Session::has('search_model'))
-		{
-			$this->searchModel = Session::get('search_model');
-		}
-		else
-		{
+		//if (Session::has('search_model'))
+		//{
+		//	$this->searchModel = Session::get('search_model');
+		//}
+		//else
+		//{
 			$this->searchModel = $searchModel;
-		}
+		//}
 	}
 
 	public function getIndex()

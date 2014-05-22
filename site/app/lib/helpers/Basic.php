@@ -5,8 +5,13 @@ use database\User;
 
 class Basic {
 
-	public static function calcAge($birthYear)
+	public static function calcAge($birthYear = null)
 	{
+		if (is_null($birthYear))
+		{
+			$birthYear = Auth::user()->birth_year;
+		}
+
 		return date('Y') - $birthYear; 
 	}
 

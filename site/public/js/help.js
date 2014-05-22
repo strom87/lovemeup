@@ -1,4 +1,12 @@
 var help = {
+	template: { 
+		id: '#@',
+		name: '[name="@"]',
+		idStart: '[id^="@"]',
+		idEnd: '[id$="@"]',
+		nameStart: '[name^="@"]',
+		nameEnd: '[name$="@"]'
+	},
 	url: function(path) {
 		var url = $('#home').prop('href');
 		var last = --url.length;
@@ -9,10 +17,15 @@ var help = {
 		return url+'/'+path;
 	},
 	getInput: function(data, type) {
-		var template = { id: '#@', name: '[name="@"]', idStart: '[id^="@"]', idEnd: '[id$="@"]', nameStart: '[name^="@"]', nameEnd: '[name$="@"]' };
-
 		for(var name in data) {
-			data[name] = $(template[type].replace('@', data[name])).val();
+			data[name] = $(this.template[type].replace('@', data[name])).val();
+		}
+
+		return data;
+	},
+	getCheckbox: function(data, type) {
+		for(var name in data) {
+			data[name] = $(this.template[type].replace('@', data[name])).is(':checked');
 		}
 
 		return data;

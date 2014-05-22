@@ -4,6 +4,8 @@
 
 	@include('search.partial.basic')
 
+	@include('search.partial.advanced')
+
 @stop
 
 @section('script')
