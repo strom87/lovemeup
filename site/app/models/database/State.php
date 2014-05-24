@@ -8,4 +8,9 @@ class State extends Eloquent {
 
 	protected $fillable = array('country_id', 'name');
 
+	public function cities()
+	{
+		return $this->hasMany('database\City', 'state_id', 'id');
+	}
+
 }

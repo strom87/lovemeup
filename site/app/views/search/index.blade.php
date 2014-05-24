@@ -1,10 +1,13 @@
 @extends('layouts.site')
 
 @section('content')
+	{{ Form::open(['url'=>'search/advanced']) }}
+		
+		@include('search.partial.basic')
 
-	@include('search.partial.basic')
+		@include('search.partial.advanced')
 
-	@include('search.partial.advanced')
+	{{ Form::close() }}
 
 @stop
 

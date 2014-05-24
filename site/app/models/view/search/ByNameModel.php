@@ -1,17 +1,16 @@
 <?php namespace view\search;
 
 use helpers\Basic;
-use helpers\Search;
 
 class ByNameModel {
 
 	public $users;
 
-	public function __construct($name)
+	public function __construct($names)
 	{
 		$this->users = [];
 
-		foreach(Search::byName($name) as $user)
+		foreach($names as $user)
 		{
 			$this->users[] = (object) [
 				'name'	=> $user->name,

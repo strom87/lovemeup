@@ -13,7 +13,7 @@
 						@foreach($model->searches as $id => $value)
 							<div class="field">
 								<div class="ui checkbox">
-									<input type="checkbox" name="search_{{$id}}">
+									{{ Form::checkbox('search[]', $id, in_array($id, $model->search)) }}
 									<label>{{ $value }}</label>
 								</div>
 							</div>
@@ -28,7 +28,7 @@
 						@foreach($model->statuses as $id => $value)
 							<div class="field">
 								<div class="ui checkbox">
-									<input type="checkbox" name="status_{{$id}}">
+									{{ Form::checkbox('status[]', $id, in_array($id, $model->status)) }}
 									<label>{{ $value }}</label>
 								</div>
 							</div>
@@ -51,7 +51,7 @@
 						@foreach($model->childrens as $id => $value)
 							<div class="field">
 								<div class="ui checkbox">
-									<input type="checkbox" name="children_{{$id}}">
+									{{ Form::checkbox('children[]', $id, in_array($id, $model->children)) }}
 									<label>{{ $value }}</label>
 								</div>
 							</div>
@@ -66,7 +66,7 @@
 						@foreach($model->pets as $id => $value)
 							<div class="field">
 								<div class="ui checkbox">
-									<input type="checkbox" name="pet_{{$id}}">
+									{{ Form::checkbox('pet[]', $id, in_array($id, $model->pet)) }}
 									<label>{{ $value }}</label>
 								</div>
 							</div>
@@ -81,7 +81,7 @@
 						@foreach($model->alcohols as $id => $value)
 							<div class="field">
 								<div class="ui checkbox">
-									<input type="checkbox" name="alcohol_{{$id}}">
+									{{ Form::checkbox('alcohol[]', $id, in_array($id, $model->alcohol)) }}
 									<label>{{ $value }}</label>
 								</div>
 							</div>
@@ -96,7 +96,7 @@
 						@foreach($model->tobaccos as $id => $value)
 							<div class="field">
 								<div class="ui checkbox">
-									<input type="checkbox" name="tobacco_{{$id}}">
+									{{ Form::checkbox('tobacco[]', $id, in_array($id, $model->tobacco)) }}
 									<label>{{ $value }}</label>
 								</div>
 							</div>
@@ -119,7 +119,7 @@
 						@foreach($model->eyeColors as $id => $value)
 							<div class="field">
 								<div class="ui checkbox">
-									<input type="checkbox" name="eye_color_{{$id}}">
+									{{ Form::checkbox('eye_color[]', $id, in_array($id, $model->eyeColor)) }}
 									<label>{{ $value }}</label>
 								</div>
 							</div>
@@ -134,7 +134,7 @@
 						@foreach($model->hairColors as $id => $value)
 							<div class="field">
 								<div class="ui checkbox">
-									<input type="checkbox" name="hair_color_{{$id}}">
+									{{ Form::checkbox('hair_color[]', $id, in_array($id, $model->hairColor)) }}
 									<label>{{ $value }}</label>
 								</div>
 							</div>
@@ -149,7 +149,7 @@
 						@foreach($model->physiques as $id => $value)
 							<div class="field">
 								<div class="ui checkbox">
-									<input type="checkbox" name="physique_{{$id}}">
+									{{ Form::checkbox('physique[]', $id, in_array($id, $model->physique)) }}
 									<label>{{ $value }}</label>
 								</div>
 							</div>
@@ -164,17 +164,19 @@
 		Städer
 	</div>
 	<div class="content">
-		<div class="four column doubling ui grid">
+		<h5 class="ui header">Bor i stad</h5>
+		<div id="cities" class="four column doubling ui grid">
 			@foreach($model->cities as $id => $value)
 				<div class="column">
 					<div class="field">
 						<div class="ui checkbox">
-							<input type="checkbox" name="city_{{$id}}" checked="checked">
+							{{ Form::checkbox('city[]', $id, in_array($id, $model->city)) }}
 							<label>{{ $value }}</label>
 						</div>
 					</div>
 				</div>
 			@endforeach
+
 		</div>
 	</div>
 	<div class="title">
@@ -190,7 +192,7 @@
 						@foreach($model->educations as $id => $value)
 							<div class="field">
 								<div class="ui checkbox">
-									<input type="checkbox" name="education_{{$id}}">
+									{{ Form::checkbox('education[]', $id, in_array($id, $model->education)) }}
 									<label>{{ $value }}</label>
 								</div>
 							</div>
@@ -205,7 +207,7 @@
 						@foreach($model->works as $id => $value)
 							<div class="field">
 								<div class="ui checkbox">
-									<input type="checkbox" name="work_{{$id}}">
+									{{ Form::checkbox('work[]', $id, in_array($id, $model->work)) }}
 									<label>{{ $value }}</label>
 								</div>
 							</div>
@@ -220,7 +222,7 @@
 						@foreach($model->workStatuses as $id => $value)
 							<div class="field">
 								<div class="ui checkbox">
-									<input type="checkbox" name="works_statuses_{{$id}}">
+									{{ Form::checkbox('work_status[]', $id, in_array($id, $model->workStatus)) }}
 									<label>{{ $value }}</label>
 								</div>
 							</div>
@@ -240,3 +242,16 @@
 		</a>
 	</div>
 </div>
+
+<script id="cities_template" type="text/template">
+	@{{#cities}}
+		<div class="column">
+			<div class="field">
+				<div class="ui checkbox">
+					<input type="checkbox" name="city[]" value="@{{id}}" />
+					<label>@{{name}}</label>
+				</div>
+			</div>
+		</div>
+	@{{/cities}}
+</script>

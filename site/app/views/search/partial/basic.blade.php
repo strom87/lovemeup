@@ -4,7 +4,7 @@
 	<div class="fields">
 		<div class="four wide field">
 			<div class="ui checkbox">
-				<input type="checkbox" name="has_profile">
+				{{ Form::checkbox('has_profile_image', '0', $model->hasProfilePicture) }}
 				<label>{{ trans('search.has_profile') }}</label>
 			</div>
 		</div>
@@ -12,7 +12,7 @@
 	<div class="fields">
 		<div class="four wide field">
 			<div class="ui checkbox">
-				<input type="checkbox" name="search_my_age">
+				{{ Form::checkbox('search_my_age', '0', $model->searchMyAge) }}
 				<label>{{ str_replace(':age', $model->age, trans('search.search_my_age')) }}</label>
 			</div>
 		</div>
@@ -55,8 +55,27 @@
 	</div>
 	<div class="fields">
 		<div class="four wide field">
-			<label>{{ trans('search.states') }}</label>
+			<label>{{ trans('search.gender') }}</label>
 			<div class="ui fluid selection dropdown">
+				<input type="hidden" name="gender" value="{{ $model->gender }}">
+				<div class="default text"></div>
+				<i class="dropdown icon"></i>
+				<div class="menu">
+					@foreach($model->genders as $id => $gender)
+						@if($id == $model->gender)
+							<div class="item active" data-value="{{ $id }}">{{ $gender }}</div>
+						@else
+							<div class="item" data-value="{{ $id }}">{{ $gender }}</div>
+						@endif
+					@endforeach
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="fields">
+		<div class="four wide field">
+			<label>{{ trans('search.states') }}</label>
+			<div class="ui fluid selection dropdown states">
 				<input type="hidden" name="state" value="{{ $model->state }}">
 				<div class="default text"></div>
 				<i class="dropdown icon"></i>

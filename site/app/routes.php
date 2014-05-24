@@ -22,6 +22,7 @@ Route::group(['prefix'=>'api', 'before'=>'ajax'], function()
 
 	Route::group(['before'=>'auth'], function()
 	{
+		Route::controller('search', 'api\ApiSearchController');
 		Route::controller('user-profile', 'api\ApiUserProfileController');
 	});
 });

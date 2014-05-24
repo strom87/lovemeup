@@ -1,20 +1,12 @@
-function getUserSearch() {
-	var data = help.getInput({
-		minage: 'minage',
-		maxage: 'maxage',
-		state: 'state',
-	}, 'name');
-
-	return data;
-}
-
-function getUserRelation() {
-	var data = help.getCheckbox({
-		has_profile: 'has_profile',
-		search_my_age: 'search_my_age'
-	}, 'name');
-
-	return data;
+function getCities(id) {
+	$.get(help.url('api/search/cities/'+id)).done(function(data) {
+		var template = $('#cities_template').html();
+		var rendered = Mustache.render(template, data);
+		$('#cities').empty().html(rendered);
+		$('.ui.checkbox').checkbox();
+	}).fail(function(e) {
+		console.log(e)
+	});
 }
 
 function ageValidation(type, age) {
@@ -37,7 +29,7 @@ function ageValidation(type, age) {
 }
 
 $(document).on('ready', function() {
-	$('.ui.checkbox').checkbox()
+	$('.ui.checkbox').checkbox();
 	$('.ui.dropdown').dropdown();
 	$('.ui.accordion').accordion();
 
@@ -59,8 +51,14 @@ $(document).on('ready', function() {
 		},
 	});
 
+	$('.ui.dropdown.states').dropdown({
+		onChange: function(value) {
+			getCities(value);
+		}
+	});
+
 	$('#search').on('click', function() {
-		console.log(getUserRelation());
+		$('form').submit();
 	});
 
 });

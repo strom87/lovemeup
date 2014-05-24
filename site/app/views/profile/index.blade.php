@@ -21,4 +21,13 @@
 		</div>
 	</div>
 
+	@include('profile.partial.message')
+	@include('profile.partial.flirts')
+
+@stop
+
+@section('script')
+	
+	{{ HTML::script('js/site/profile/profile.js') }}
+
 @stop

@@ -15,6 +15,11 @@ class Basic {
 		return date('Y') - $birthYear; 
 	}
 
+	public static function calcYear($age)
+	{
+		return date('Y') - $age;
+	}
+
 	public static function getYearsRange()
 	{
 		$year = date('Y') - 18;
@@ -49,6 +54,11 @@ class Basic {
 			'medium'=>asset($path.'/medium/'.$imageName),
 			'small'=>asset($path.'/small/'.$imageName),
 		];
+	}
+
+	public static function getUserPorfilePictureById($pid)
+	{
+		return self::getUserPorfilePicture(User::find($pid));
 	}
 
 	public static function getUserPorfilePicture(User $user)
