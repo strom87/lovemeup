@@ -52,6 +52,8 @@ class ValidatorRules {
 
 	public static $image_description = 'max:255';
 
+	public static $message_text = 'required|min:1';
+
 	public static function makeUser()
 	{
 		return [
@@ -85,6 +87,11 @@ class ValidatorRules {
 			'relationship_status'=>self::$relationship_status_id,
 			'relationship_search'=>self::$relationship_search_id
 		];
+	}
+
+	public static function makeMessage()
+	{
+		return ['message'=>self::$message_text];
 	}
 
 	public static function updateRelationship()

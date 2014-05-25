@@ -10,11 +10,23 @@
 				{{ Form::textarea('message_text') }}
 			</div>
 			<div class="field">
-				<a class="ui teal button">
-					<i class="mail icon"></i>
+				<div id="send_message" class="ui teal button">
+					<i id="send_message_icon" class="mail icon"></i>
 					{{ trans('button.send') }}	
-				</a>
+				</div>
 			</div>
+		</div>
+		{{ Form::hidden('profile_id', $model->id) }}
+	</div>
+</div>
+
+<div class="ui page dimmer">
+	<div class="content">
+		<div class="center">
+			<h2 class="ui inverted icon header">
+				<i class="icon circular inverted emphasized teal mail"></i>
+				Meddelandet skickat!
+			</h2>
 		</div>
 	</div>
 </div>

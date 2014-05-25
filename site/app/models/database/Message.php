@@ -6,7 +6,7 @@ class Message extends Eloquent {
 
 	protected $table = 'messages';
 
-	protected $fillable = array('text');
+	protected $fillable = array('text', 'is_read');
 
 	public function fromUser()
 	{

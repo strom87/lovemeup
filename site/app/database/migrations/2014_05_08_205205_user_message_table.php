@@ -14,7 +14,7 @@ class UserMessageTable extends Migration {
 	{
 		Schema::create('user_message', function(Blueprint $table)
 		{
-			$table->integer('message_id')->unsigned();
+			$table->bigInteger('message_id')->unsigned();
 			$table->integer('from_user_id')->unsigned();
 			$table->integer('to_user_id')->unsigned();
 		});

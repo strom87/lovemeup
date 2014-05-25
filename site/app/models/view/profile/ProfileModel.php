@@ -5,6 +5,7 @@ use helpers\Basic;
 
 class ProfileModel {
 
+	public $id;
 	public $age;
 	public $name;
 	public $gender;
@@ -39,6 +40,7 @@ class ProfileModel {
 	{
 		$user = User::find($id);
 
+		$this->id = $user->id;
 		$this->name = $user->name;
 		$this->gender = $user->gender->name;
 		$this->state = $user->state->name;

@@ -24,7 +24,7 @@
 				<i class="user icon"></i>
 				{{ trans('menu.site.userprofile') }}
 			</a>
-			<a class="item">
+			<a class="item" href="{{ url('messages') }}">
 				<i class="mail icon"></i>
 				{{ trans('menu.site.messages') }}
 			</a>
