@@ -5,6 +5,7 @@
 	@if($model->hasMessages)
 
 		@include('message.partial.message')
+		@include('message.partial.sidebar')
 
 	@else
 		<h1 class="ui header">Inga meddelanden</h1>

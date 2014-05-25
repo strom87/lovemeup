@@ -1,5 +1,6 @@
 <?php namespace view\message;
 
+use helpers\Basic;
 use message\MessageCollector;
 
 class MessageModel {
@@ -21,6 +22,11 @@ class MessageModel {
 		$this->messages = MessageCollector::getMessages($this->latestUser);
 
 		$this->users = MessageCollector::getMessagedUser();
+
+		foreach($this->users as $user)
+		{
+			$user->profileimage = Basic::getUserImagesPathHtml($user->name, $user->profileimage);
+		}
 	}
 
 }

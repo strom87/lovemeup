@@ -1,8 +1,10 @@
 <?php
 
 return array(
-	'header' => 'LoveMeUp',
-	'search' => 'Sök...',
+	'header'	=> 'LoveMeUp',
+	'search'	=> 'Sök...',
+	'open'		=> 'Meny',
+	'close'		=> 'Stäng meny',
 	'site' => array(
 		'userprofile'	=> 'Din profil',
 		'messages'		=> 'Meddelanden',

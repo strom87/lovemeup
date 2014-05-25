@@ -35,7 +35,13 @@ $(document).on('ready', function() {
 	
 	$('.ui.tabular.menu .item').tab();
 
-	//$('.ui.top.attached.tabular.menu').tab();
+	$('#open_side_menu').on('click', function() {
+		$('.sidemenu.sidebar').sidebar('toggle');
+	});
+
+	$('#close_side_menu').on('click', function() {
+		$('.sidemenu.sidebar').sidebar('toggle');
+	});
 	
 	addMagnificPopup();
 });

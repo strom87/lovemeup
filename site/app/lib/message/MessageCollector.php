@@ -14,7 +14,7 @@ class MessageCollector {
 		$pid = Auth::user()->id;
 
 		$users = DB::table('users as u')
-					->select('u.id', 'u.name')
+					->select('u.id', 'u.name', 'i.name as profileimage')
 					->join(DB::raw('(select 
 										distinct case to_user_id when '.$pid.' then from_user_id else to_user_id end as user_id,
 										id
@@ -28,24 +28,33 @@ class MessageCollector {
 					{
 						$join->on('u.id', '=', 'm.user_id');
 					})
-					->groupBy('u.id', 'u.name')
+					->leftJoin('images as i', function($join)
+					{
+						$join->on('i.user_id', '=', 'u.id')
+							 ->where('is_profile', '=', true);
+					})
+					->groupBy('u.id', 'u.name', 'profileimage')
 					->orderBy('m.id', 'desc')
 					->get();
 		/*
-		SELECT u.id, 
-		       u.name 
-		FROM users AS u
-		JOIN (
-			SELECT DISTINCT CASE to_user_id WHEN 1 THEN from_user_id ELSE to_user_id END AS user_id,
-			       messages.id
-			FROM user_message
-			JOIN messages
-				ON id = message_id
-				WHERE (to_user_id = 1 OR from_user_id = 1)
-		) AS m
-		ON u.id = m.user_id
-		GROUP BY id, NAME
-		ORDER BY m.id DESC
+			SELECT u.id, 
+			       u.name,
+			       i.name AS profileimage
+			FROM users AS u
+			JOIN (
+				SELECT DISTINCT CASE to_user_id WHEN 1 THEN from_user_id ELSE to_user_id END AS user_id,
+				       messages.id
+				FROM user_message
+				JOIN messages
+					ON id = message_id
+					WHERE (to_user_id = 1 OR from_user_id = 1)
+			) AS m
+			ON u.id = m.user_id
+			LEFT JOIN images AS i
+			ON i.user_id = u.id
+			AND i.is_profile = 1
+			GROUP BY id, u.name, profileimage
+			ORDER BY m.id DESC
 		*/
 
 		return $users;

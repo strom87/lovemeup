@@ -48,6 +48,11 @@ class Basic {
 			$username = Auth::user()->name;
 		}
 
+		if (is_null($imageName))
+		{
+			return self::noProfileImage();
+		}
+
 		$path = 'users/'.strtolower($username).'/images';
 		return (object) [
 			'large'=>asset($path.'/large/'.$imageName),
@@ -67,11 +72,7 @@ class Basic {
 		
 		if (empty($filename))
 		{
-			return (object) [
-				'large'=>asset('images/no_profile_large.png'),
-				'medium'=>asset('images/no_profile_medium.png'),
-				'small'=>asset('images/no_profile_small.png')
-			];
+			return self::noProfileImage();
 		}
 		
 		return self::getUserImagesPathHtml($user->name, $filename);
@@ -93,6 +94,15 @@ class Basic {
 		}
 
 		return $images;
+	}
+
+	private static function noProfileImage()
+	{
+		return (object) [
+			'large'=>asset('images/no_profile_large.png'),
+			'medium'=>asset('images/no_profile_medium.png'),
+			'small'=>asset('images/no_profile_small.png')
+		];
 	}
 
 }
